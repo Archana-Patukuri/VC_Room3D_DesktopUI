@@ -1,0 +1,27 @@
+{
+	"lights":[		
+		"fanLight"
+	],
+	"receivers": [		
+		"Floor",
+		"Table_Top_Mesh"		
+	],
+	"casters": [													
+		"Table_Top_Mesh",
+		"Node_Legs"	,
+		"Node_Tyres",
+		"Node_SeatSupport001",
+		"Mesh_SeatSupport002_1",
+		"Mesh_Adjustment_Knob_3",		
+		"Plane010",							
+		"Laptop_Selectable",	
+		"Lamp_Selectable",				
+		"Flower",
+		"Pot",
+		"Node_Handle01",
+		"Node_Handle02",
+		"Mesh_Backrest",
+		"InnerCushion",
+		"OuterWireframeCushion"
+	]
+}

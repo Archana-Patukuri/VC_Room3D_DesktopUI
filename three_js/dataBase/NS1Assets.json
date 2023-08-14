@@ -1,0 +1,28 @@
+{
+	"lights":[
+		"Desktop_Lamp_Light002",
+		"fanLight"
+	],
+	"receivers": [
+		"Back_Wall",
+		"Left_Wall",
+		"Front_Wall",
+		"Right_Wall",
+		"Cealing",
+		"Floor",
+		"Table_Top_Mesh"
+	],
+	"casters": [
+		"Table_Top_Mesh",
+		"Node_Legs"	,
+		"Node_Tyres",
+		"Node_SeatSupport001",
+		"Mesh_SeatSupport002_1",
+		"Mesh_Adjustment_Knob_3",		
+		"Plane010",							
+		"Laptop_Selectable",	
+		"Lamp_Selectable",				
+		"Flower",
+		"Pot"		
+	]
+}

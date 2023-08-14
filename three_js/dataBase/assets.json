@@ -1,0 +1,121 @@
+{
+  "Room": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Room/Room_Variants_latest1.glb",
+      "Name": "Room"
+    }    
+  ],
+  "Plants": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/IndoorPlants/floor/indoor_plant_v01_opt.glb",
+      "Name": "Plant 01"
+    }
+  ],
+  "Accessories": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Accessories/Frames_Without_Glass1.glb",
+      "Name": "Frame"
+    },
+    {
+      "URL": "/compressed_models/Accessories/Wall_Plants.glb",
+      "Name": "Frame"
+    }
+    
+  ],
+  "Blinds": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Blinds/blind_03/Blinds_03_v01_draco.glb",
+      "Name": "Window Blinds - Horizontal",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/blinds/Blinds_03_v01.webp"
+    },
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Blinds/blind_01/Blinds_01_v01_draco.glb",
+      "Name": "Window Blinds - Vertical",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/blinds/Blinds_01_v01.webp"
+    },
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Blinds/blind_02/Blinds_02_v01_draco.glb",
+      "Name": "Window Blinds - RollUp",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/blinds/Blinds_02_v01.webp"
+    }
+  ],
+      
+  "Tables": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Tables/Table_Automatic_01_v01_Draco.glb",
+      "Name": "Manual Ergonomic Table",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/tables/Table_Automatic_01_v01.webp"
+    },
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Tables/Table_Manual_01_v01_Draco.glb",
+      "Name": "Motarized Ergonomic Table",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/tables/Table_Manual_01_v01.webp"
+    },
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Tables/Table_Small_01_v01_Draco.glb",
+      "Name": "Small Ergonomic Table",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/tables/Table_Small_01_v01.webp"
+    }
+  ],   
+  "Chairs": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Chairs/Chair_01_v01.glb",
+      "Name": "Bucket Seat Chair",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/chairs/Chair_01_v01.webp"
+    },
+    {
+      "URL": "/compressed_models/Chairs/chair_02/Chair_02_v01.glb",
+      "Name": "Basic Ergonomic Chair",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/chairs/Chair_02_v01.webp"
+    },
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/Chairs/Chair_03_v01.glb",
+      "Name": "Advanced Ergonomic Chair",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/chairs/Chair_03_v01.webp"
+    }
+  ],
+  "Mirror": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/mirror/mirror_draco.glb",
+      "Name": "Mirror_Selectable",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/chairs/Chair03.webp"
+    }
+  ],
+  "Vase": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/vase/Flower_Pot_draco.glb",
+      "Name": "Vase_Selectable",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/chairs/Chair03.webp"
+    }
+  ],
+  "Laptop": [
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/laptop/Laptop_Draco.glb",
+      "Name": "Laptop_Selectable",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/chairs/Chair03.webp"
+    }
+  ],
+  "Lights": [  
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/TableLamps/Desk_Lamp.glb",
+      "Name": "Desktop Light",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/lights/Table_Lamp_01_v01.webp"
+    },     
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/lights/Floor_Lamp_small/Floor_Lamp_small_draco.glb",
+      "Name": "Floor Light",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/lights/Floor_Lamp_small.webp"
+    },
+    {
+      "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/lights/Left_Wall_Lamp/Left_Wall_Lamp_draco.glb",
+      "Name": "Wall Light",
+      "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/lights/WallLamp.webp"
+    }],
+    "Lights_2": [
+      {
+        "URL": "https://d1asmhoz5zfmcr.cloudfront.net/compressed_models/lights/cylindrical_wall_lamp/cylindrical_wall_lamp_draco.glb",
+        "Name": "Cylindrical Light",
+        "thumbnail": "https://d1asmhoz5zfmcr.cloudfront.net/thumbnails/lights/Table_Lamp_01_v01.webp"
+      }
+  ]
+}

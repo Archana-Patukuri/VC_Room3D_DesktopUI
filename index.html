@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>Room3D</title>
+  <!-- <script src="https://kit.fontawesome.com/6a15cfc39f.js" crossorigin="anonymous"></script> -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">   
+
+  <link rel="stylesheet" href="./main.css" type="text/css" />  
+ 
+</head>
+
+<body>
+  <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+
+ <script type="importmap">
+    {
+      "imports": {
+        "three": "../build/three.module.js",
+        "three/addons/": "./jsm/",
+        "three/nodes": "./jsm/nodes/Nodes.js"
+      }
+    }
+  </script>
+     
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <div class="container-fluid vh-100">
+
+    <!-- NAVIGATION -->
+    <div class="row">    
+  <nav class="navbar w-100 navbar-light bg-light d-md-none fixed-top w-100">
+    <div class="container-fluid">
+      <h1 style="font-size:18px ;color:black;">Room3D    <!-- <sub style="font-weight: 100;font-size: 10px;">-Design your workspace in 3D</sub> --></h1>
+      <div>
+        <button type="reset" aria-label="reset" role="button" id="reset" class="reset-button border-0 bg-transparent"> <svg width="20" height="20"
+            viewBox="0 0 18 19" fill="red" style="background-color:none;" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.6375 2.86572C14.943 4.1983 16.5 6.75568 16.5 9.68491C16.5 13.9831 13.1445 17.4823 9 17.4823C4.8555 17.4823 1.5 13.9831 1.5 9.68491C1.5 6.21992 3.6795 3.27551 6.6975 2.26243C7.0905 2.13038 7.3035 1.70086 7.17375 1.30322C7.04325 0.905571 6.61875 0.690052 6.22575 0.822095C2.61825 2.03249 0 5.54301 0 9.68491C0 14.8315 4.038 19 9 19C13.962 19 18 14.8315 18 9.68491C18 6.32236 16.275 3.37568 13.695 1.73805L14.6033 1.49218C15.003 1.38366 15.2408 0.967039 15.1335 0.562563C15.0263 0.158086 14.6152 -0.0824745 14.2155 0.0260435L11.3175 0.811471C10.917 0.919989 10.68 1.33661 10.7873 1.74108L11.5635 4.67335C11.6708 5.07782 12.0825 5.31838 12.4823 5.20987C12.882 5.10135 13.1197 4.68473 13.0125 4.28025L12.6375 2.86572V2.86572Z"
+              fill="#F75146" />
+          </svg></button>
+        <button class="burger-menu" id="burgerMenu" value="off" aria-label="burgerMenu" role="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+          <div class="border"></div>
+        </button>
+      </div>
+  </nav>
+  <!--nav dailog box-->
+  <div id="myModalnav" class="modal modal-drag movableDialog " style="margin-top:5vh;float: right;">
+    <!-- Modal content -->
+    <div class="modal-dialog" style="display: flex; justify-content: end;">
+      <div class="modal-content" style=" width:220px; height: 350px; border-radius: 15px; border:#FF5A50 solid 1px">
+        <div class=" modal-drag-handle">
+          <button id="closenav" class="backButton">
+            <i class="fa fa-angle-double-right" style="font-size:20px"></i>
+          </button>
+        </div>
+        <div class="modal-body" style="overflow: hidden;">
+
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Welcome <i class="fa fa-angle-right" style="font-size:15px;"></i>
+          </button>
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Furniture <i class="fa fa-angle-right" style="font-size:15px; color:transperent;"></i>
+          </button>
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Lighting <i class="fa fa-angle-right" style="font-size:15px; color:transperent;"></i>
+          </button>
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Arrangement <i class="fa fa-angle-right" style="font-size:15px; color:transperent;"></i>
+          </button>
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Navigation <i class="fa fa-angle-right" style="font-size:15px; color:transperent;"></i>
+          </button>
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Advanced <i class="fa fa-angle-right" style="font-size:15px; color:transperent;"></i>
+          </button>
+          <button type="button" class="navButton angle burgerMenuOptBtn">
+            Setting <i class="fa fa-angle-right" style="font-size:15px; color:transperent;"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <div class="row ">
+      <!-- 3D Scene Container -->
+      <div class="col-lg-7 m-0 p-0 position-relative links" id="3dcontainer">       
+        
+        <div id="scene-container"></div> 
+              
+       <div id="loadingSpinner" class="position-absolute top-50 start-50 translate-middle" style="color:#FFFFFF"><strong>Loading...</strong>
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>        
+        </div> 
+        <div id="Spinner" class="position-absolute top-50 start-50 translate-middle" style="display: none;color:#FFFFFF">
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>        
+        </div> 
+        
+        <div id="ar-prompt">
+          <img src="prompt/hand.svg">
+        </div>
+      
+
+      </div>
+
+      <!-- UI -->
+      <div class="col border overflow-auto vh-40" id="UI">
+        <!-- WELCOME SECTION -->
+        <div class="Section_Container">
+          <div class="d-flex py-1 flex-row justify-content-center">          
+              <div class="col-auto text-center mx-5">                
+                <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+                  style="background-color:#FF5A50;">Home</button>
+              </div>              
+            <div class="next-icon prevNext">
+              <button type="button" aria-label="nextIcon" role="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center">
+                <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M12 30 L24 16 12 2" />
+                </svg></button>              
+            </div>
+          </div>
+
+          <div class="home_card_container" id="home_card_container1">
+            <div id="home_card_close">
+              <img id="close_home" src="./icons/close.png" style="width: 15px;height: 15px;margin-top: 250px;"/>                   
+          </div>
+          <div>
+            <h1 class="home_card_head">Welcome to VisCommerce</h1>
+              <ul >
+                  <li class="home_card_points">Room3D ...  A Try & Buy 3DCommerce innovation</li>
+                  <li class="home_card_points">Leapfrogging Amazon Showroom</li>
+                  <li class="home_card_points">Mix, match, customize & layout furniture to your liking</li>
+                  <li class="home_card_points">Live lighting and measurements</li>
+                  <li class="home_card_points">Paints and flooring</li>
+                  <li class="home_card_points">Photo-realistic images and video.</li>
+              </ul>    
+              <div class="d-flex">
+                                          
+              <div class="d-flex flex-row justify-content-center home_video_tour_container">
+                <a class="home_video_tour_btn" style="text-decoration: none;" id="Tour" href="https://youtu.be/wYvqHJ7FNAM" target="_blank">Video Tour
+                  <svg xmlns="http://www.w3.org/2000/svg" width="27" height="16" viewBox="0 0 27 16" fill="none">
+                    <path d="M1 7C0.447715 7 -4.82823e-08 7.44772 0 8C4.82823e-08 8.55228 0.447715 9 1 9L1 7ZM26.7071 8.7071C27.0976 8.31658 27.0976 7.68342 26.7071 7.29289L20.3431 0.92893C19.9526 0.538406 19.3195 0.538406 18.9289 0.928931C18.5384 1.31946 18.5384 1.95262 18.9289 2.34314L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.7071ZM1 9L26 9L26 7L1 7L1 9Z" fill="#FF5A50"/>
+                  </svg>                    
+                </a>                                    
+              </div>  
+              <img src="./icons/3DCommerceLogo.png" class="commerce_logo"/> 
+            </div>
+              
+          </div>            
+        </div> 
+        
+          <div id="home_ui" class="item-card" style="display: none;width:380px; height:150px;padding-top: 0px;padding-bottom: 0px;margin-bottom: 0px;" >
+          <div class="d-flex">
+            <div>
+              <p style="color:#161616; font-size: 16px;font-family: roboto;text-align: center;margin-top: 5px;color: #FF5A50;">                    
+                Sample Office Room</p>                 
+               
+                <div class="d-flex flex-row justify-content-center align-items-center">  
+                 
+
+                  <div id="load_furniture_btn" style="margin: 5px;">
+                    <button class="buttonH buttonC"><img src="./icons/furniture.svg" style="width: 12px;height: 12px;"/> Furniture</button>   
+                                         
+                  </div>
+                  <div id="lighting_etc_btn" style="margin: 5px;">
+                    <button class="buttonH buttonC"><img src="./icons/light.svg" style="width: 13px;height: 13px;"/>Lighting</button>                         
+                  </div>  
+                  <div id="load_Accessories_btn" style="margin: 5px;">
+                    <button class="buttonH buttonC"><img src="./icons/accessories.svg" style="width: 12px;height: 12px;"/>Accessories</button>                         
+                  </div>                  
+                </div>
+            
+                <div class="d-flex flex-row justify-content-around" style="margin-top: 5%;">
+                  <div class="d-flex flex-column">
+                  <img id="reset_home" src="./icons/reset1.png" style="width: 18px;height: 18px;"/> 
+                  <p class="reset">Reset</p>
+                  </div>   
+                  <div class="d-flex flex-column">
+                    <img id="zoom_home" src="./icons/zoom.png" style="width: 30px;height: 30px;"/>                        
+                    <p class="zoom">Zoom</p>
+                    </div>  
+                    <div class="d-flex flex-column ">
+                      <img id="pan_home" src="./icons/pan.png" style="width: 35px;height: 35px;"/>                        
+                      <p class="pan">Pan</p>
+                      </div>  
+                      <div class="d-flex flex-column">
+                        <img id="rotate_home" src="./icons/rotate.png" style="width: 30px;height: 30px;"/>                                
+                        <p class="rotate">Rotate</p>
+                        </div>  
+                        <div class="d-flex flex-column">
+                          <img id="reload_home" src="./icons/reload.png" style="width: 25px;height: 25px;"/>            
+                          <p class="reload">Reload</p>
+                          </div>             
+                  
+                  
+                  
+                  
+                
+              </div>
+
+            </div>
+
+          </div>
+          
+            
+          </div>
+        </div>
+        <!-- FURNITURE SECTION -->
+        <div class="Section_Container" style="display: none;">
+        <div class="d-flex py-1 justify-content-center">
+          <div class="col-auto">
+            <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext"><svg
+                id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <path d="M20 30 L8 16 20 2" />
+              </svg></button>
+          </div>
+           <div class="col-auto text-center mx-5">
+            <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+              style="background-color:#FF5A50;">Furniture</button>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext">
+              <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <path d="M12 30 L24 16 12 2" />
+              </svg></button>
+          </div>
+        </div>               
+        <div class="row item-card p-0 pb-1" >
+           <!--animations toasts -->
+         <div id="chairTypesUIToast" class="toast top-0 position-absolute" style="z-index: 100;top:22%"
+         data-bs-autohide="false">
+         <div class="toast-header">
+           <strong class="me-auto furnitureName"></strong>
+           <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+         </div>
+         <div class="toast-body d-flex justify-content-center gap-2" style="background-color: white;">
+           <!-- Animation UI goes here -->
+         </div>
+       </div>
+          <!-- toast -->
+          <div id="tableTypesUIToast" class="toast top-0 position-absolute" style="z-index: 100;top:22%"
+          data-bs-autohide="false">
+          <div class="toast-header">
+            <strong class="me-auto furnitureName"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+          </div>
+          <div class="toast-body d-flex justify-content-center gap-2" style="background-color: white;">
+          </div>
+          <div>                 
+            <div class="d-flex justify-content-center gap-2" id="tablesAnimationsUI">
+              <!-- tables animations UI -->
+            </div>
+          </div>
+        </div>
+         <!-- toast -->
+         <div id="blindsTypesUIToast" class="toast top-0 position-absolute" style="z-index: 100;top:22%"
+         data-bs-autohide="false">
+         <div class="toast-header">
+           <strong class="me-auto furnitureName"></strong>
+           <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+         </div>
+         <div class="toast-body d-flex justify-content-center gap-2" style="background-color: white;">
+         </div>       
+          <div>                 
+            <div class="d-flex justify-content-center gap-2" id="blindsAnimationsUI">
+              <!-- blinds animations UI -->
+            </div>
+          </div>
+        </div>
+
+      <!--animations toasts completed-->
+          <div class="d-flex py-1 justify-content-around">
+            <ul class="nav nav-pills d-flex justify-content-around mt-2" id="myTab" role="tablist">
+              <li class="nav-item">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" style="width:90px" class="px-2 py-0 active buttons buttonC furnitureToggleButton " id="chair-tab"
+                   >Chair</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="btn-group mx-1" role="group" aria-label="Basic example">
+                  <button type="button" style="width:90px" class="px-2 py-0 buttons buttonC furnitureToggleButton" id="table-tab"
+                    >Table</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" style="width:100px" class="px-2 py-0 buttons buttonC furnitureToggleButton" id="windowBlinds-tab"
+                    >Shades</button>
+                </div>
+              </li>            
+            </ul>
+          </div>          
+          <div class="row mx-auto">
+            <div class="tab-content d-flex justify-content-center">
+              <div class="tab-pane furnitureUIContainer active show fade position-relative" id="chair">               
+                <!-- toast -->
+                <div class="d-flex justify-content-center" id="chairTypesUI">
+                  <!-- Chair-furniture-types-UI -->                 
+                </div>               
+              </div>
+              <div class="tab-pane furnitureUIContainer fade position-relative" id="table">                
+                <!-- toast -->
+                <div class="d-flex justify-content-center" id="tableTypesUI">
+                  <!-- Table-furniture-types-UI -->
+                  <p id="Automatic" class="tableHover">Automatic Table</p>
+                  <p id="Manual" class="tableHover">Manual Table</p>
+                  <p id="Small" class="tableHover">Small Table</p>
+                  
+                </div>                
+              </div>
+              <div class="tab-pane furnitureUIContainer fade position-relative" id="windowBlinds">               
+                <!-- toast -->
+                <div class="d-flex justify-content-center" id="blindsTypesUI">
+                  <!-- blinds-furniture-types-UI -->
+                </div>                
+              </div>            
+            </div>
+          </div>
+        </div>
+
+        </div>
+        <!-- LIGHTING SECTION -->
+        <div class="Section_Container" style="display: none;">
+          <div class="d-flex py-1 justify-content-center">
+          <div class="col-auto">
+            <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext"><svg
+                id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <path d="M20 30 L8 16 20 2" />
+              </svg></button>
+          </div>          
+           <div class="col-auto text-center mx-5">
+            <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+              style="background-color:#FF5A50;">Lighting</button>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext">
+              <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <path d="M12 30 L24 16 12 2" />
+              </svg></button>
+          </div>
+        </div>
+
+        <!-- Toasts for effects and controls -->
+        <div class="row mx-auto">
+          <div class="tab-content d-flex">
+              
+              <div class="tab-pane fade show active position-relative" >
+
+                <div class="toast top-0 position-absolute toastTypes" id="controlsTab" style="z-index: 100;top:22%;max-width: 700px;"
+                data-bs-autohide="false">
+                <div class="toast-header">
+                  <strong class="me-auto">Controls</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body d-flex justify-content-start gap-2" style="background-color: white;">
+                  <div class="d-flex justify-content-center" style="font-size: 10px; width: 100%;" id="controlsUI">
+                    <div class="controlsContainer" style="width: 100%;">
+                      <div class="initialControlsContainer" style="width: 100%; margin-right: 20px;">
+                        <div style="width: 100%; display: flex; justify-content: end; gap: 20px;">
+                          <span style="margin-right: 25px;">Intensity</span>
+                          <span style="margin-right: 25px;">Color</span>                          
+                        </div>                        
+                      </div>                      
+                    </div>                                        
+                  </div>                                                                            
+                  </div>  
+                  <a href="#" id="more" class="border:none">More</a>  
+                </div>               
+                    <!--more controls toast -->
+                <div class="toast top-0 position-absolute" id="MoreControlsToast" style="z-index: 100;top:22%;max-width: 700px;"
+                  data-bs-autohide="false">
+                  <div class="toast-header">
+                    <strong class="me-auto">Controls</strong>
+                    <button type="button" class="btn-close" id="toast_close_button" data-bs-dismiss="toast"></button>
+                  </div>
+                  <div class="toast-body d-flex justify-content-start gap-2" style="background-color: white;">                  
+                    <div class="d-flex justify-content-center" style="font-size: 10px;" id="controlsUI">
+                      <div>                         
+                      <div class="controlsContainer" style="width: 100%;">
+                        <div class="initialControlsContainer1" style="width: 100%; margin-right: 20px;">
+                          <div style="width: 100%; display: flex;gap:5px">
+                            <span style="margin-left: 110px;">Intensity</span>
+                            <span style="margin-left: 22px;">Color</span>
+                            <span style="margin-left: 3px;">Helper</span>
+                            <span style="margin-left: 2px;">Distance</span>
+                            <span>Decay</span>
+                          </div>                                                                                 
+
+
+                        </div>    
+                        
+                        <div style="display: none;" id="FloorLamp" >
+                          <div class="d-flex">                          
+                            <div class="d-flex flex-row">                         
+                                <input type="checkbox" name="lights" value="floor_lamp" class="largerCheckbox lightTypes" id="floor_lamp">
+                                <label for="floor_lamp">Floor Lamp</label>
+                               </div>                        
+                            <div class="slidecontainer1" style="margin-left: 12px;">                          
+                              <input type="range" min="0" max="10" value="5" step="0.1" class="slider Slider_range slider_class" style="width:70px">
+                            </div>
+                            <div class="colorPickerContainer1" style="margin-left: 5px;">                          
+                              <input type="color" class="colorPicker1" name="colorPicker1" value="#FFFFFF" style="border:none;height: 20px;width:30px">                          
+                            </div> 
+                            <input type="checkbox" name="helper" class="largerCheckbox helper_FW" style="margin-left:5px;">                            
+  
+                            <input type="number" class="distance" value="0" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                            <input type="number" class="decay" value="2" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                          </div> 
+                        </div>
+                          <div style="display: none;" id="WallLamp">
+                          <div class="d-flex">                          
+                            <div class="d-flex flex-row">                         
+                              <input type="checkbox" name="lights" value="wall_lamp" class="largerCheckbox lightTypes" id="wall_lamp">
+                              <label for="wall_lamp">Wall Lamp</label>
+                              </div>                      
+                          <div class="slidecontainer1" style="margin-left: 16px;">                          
+                            <input type="range" min="0" max="5" value="2" step="0.1" class="slider Slider_range slider_class" style="width:70px">
+                          </div>
+                          <div class="colorPickerContainer1" style="margin-left: 5px;">                          
+                            <input type="color" class="colorPicker1" name="colorPicker1" value="#FFFFFF" style="border:none;height: 20px;width:30px">                          
+                          </div> 
+                          <input type="checkbox" name="helper" class="largerCheckbox helper_FW" style="margin-left: 5px;">  
+  
+                          <input type="number" class="distance" value="0" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                          <input type="number" class="decay" value="2" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                        </div>  
+                      </div>
+
+                      </div>                                              
+                         <div id="MoreControls">
+                          <div class="d-flex">                          
+                            <div>                                           
+                              <label style="color: #FF5A50;font-family: 'Roboto'; margin-right: 0px; margin-left: 50px;">Tone Mapping Exposure</label>
+                            <div class="d-flex">
+                              <div class="d-flex flex-row pb-1">                           
+                                <input type="checkbox" name="lights" value="HDRI" class="largerCheckbox" id="HDRI">
+                                <label for="HDRI">HDRI</label>                             
+                            </div>
+                              <div class="slidecontainer" style="margin-left: 10px;">                          
+                                <input type="range" min="0" max="2" value="0.7" step="0.1" class="slider Slider_range slider_class">
+                              </div>                          
+                            </div>   
+                            <div class="d-flex flex-row pb-1">              
+                              <input type="checkbox" name="Emissive" value="Emissive" checked class="largerCheckbox" id="Emissive">
+                              <label for="Emissive">Emissive</label>
+                              </div>
+                              <div class="d-flex flex-row pb-1">   
+                              <input type="checkbox" id="Shadows_SunLight" name="controls" value="Shadows_SunLight" class="largerCheckbox">
+                              <label for="Shadows_SunLight">Shadows SunLight</label>                               
+                              </div>
+                              <div class="d-flex flex-row pb-1"> 
+                                <input type="checkbox" id="Shadows_NightLight1" name="controls" value="Shadows_NightLight1" class="largerCheckbox">
+                                <label for="Shadows_NightLight1">Shadows NightLight</label>
+                                </div>                                                            
+                                <div class="d-flex flex-row pb-1"> 
+                                <input type="checkbox" id="ReflectionsMirror_C" name="effects" value="ReflectionsMirror_C" class="largerCheckbox">
+                                <label for="ReflectionsMirror_C">Mirror Reflections</label>
+                                </div>
+                                <div class="d-flex flex-row pb-1"> 
+                                <input type="checkbox" id="ReflectionsFloor_C" checked name="effects" value="ReflectionsFloor_C" class="largerCheckbox">
+                              <label for="ReflectionsFloor_C">Floor Reflections</label>
+                              </div>                                                        
+                                  <div class="d-flex flex-row pb-1">                                                                                                             
+                                    <input type="checkbox" id="SSAO_C" name="Preferences" value="SSAO_C" class="largerCheckbox">
+                                    <label for="SSAO_C">SSAO</label> 
+                                    </div>
+                                    <div class="d-flex flex-row pb-1"> 
+                                    <input type="checkbox" id="SAO_C" name="Preferences" value="SAO_C" class="largerCheckbox">
+                                <label for="SAO_C">SAO</label> 
+                                </div>  
+                                <a href="#" id="backControls" class="border:none">Back</a>       
+                            </div>
+                            <div style="margin-left: 20px;margin-top: 20px;">                             
+                            <div class="d-flex flex-row pb-1"> 
+                              <input type="checkbox" id="TAA_C" name="Preferences" value="TAA_C" class="largerCheckbox">
+                              <label for="TAA_C">TAA</label>
+                              </div>
+                              <div class="d-flex flex-row pb-1"> 
+                              <input type="checkbox" id="FXAA_C" name="Preferences" value="FXAA_C" class="largerCheckbox">
+                              <label for="FXAA_C">FXAA</label>
+                              </div>
+                              <div class="d-flex flex-row pb-1"> 
+                              <input type="checkbox" id="SSAA_C" name="Preferences" value="SSAA_C" class="largerCheckbox">
+                              <label for="SSAA_C">SSAA</label>
+                              </div>
+                              <div class="d-flex flex-row pb-1"> 
+                              <input type="checkbox" id="SMAA_C" name="Preferences" value="SMAA_C" checked class="largerCheckbox">
+                              <label for="SMAA_C">SMAA</label>
+                              </div>
+                              <div class="d-flex flex-row pb-1"> 
+                                <input type="checkbox" id="Stats" name="Preferences" value="Stats" class="largerCheckbox">
+                                <label for="Stats">Stats</label>  
+                                    </div> 
+                              <div class="d-flex flex-row pb-1"> 
+                                <input type="checkbox" id="gui_ui" name="Preferences" value="gui_ui" class="largerCheckbox">
+                                <label for="gui_ui">GUI</label>
+                                </div>
+                                <div class="d-flex flex-row pb-1"> 
+                                  <input type="checkbox" id="gui_ref" name="Preferences" value="gui_ref" class="largerCheckbox">
+                                  <label for="gui_ref">Floor Reflections GUI</label>
+                                  </div>                                  
+                                    <div class="d-flex flex-row pb-1"> 
+                                      <input type="checkbox" id="ssr_ui" name="Preferences" value="ssr_ui" class="largerCheckbox">
+                                      <label for="ssr_ui">SSR</label>
+                                      </div>
+                              
+                            </div>
+                          </div>                                                                                                    
+                        </div>                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+  
+                                  
+            <div class="tab-pane fade show active position-relative">
+              <!--effects toast -->
+              <div class="toast top-0 position-absolute toastTypes" style="z-index: 100;top:22%;max-width: 400px;"
+                data-bs-autohide="false">
+                <div class="toast-header">
+                  <strong class="me-auto">Light Modes</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body d-flex justify-content-start" style="background-color: white;">                                    
+                                    
+                  <div name="lightPreset">
+
+                    <div class="d-flex flex-row">
+                      <input type="radio" id="DayLightPreset" name="preset" class="labelAlignment largerCheckbox lightPreset" value="DayLightPreset">
+                      <label for="DayLightPreset">Day</label>
+                    </div>   
+                    <div class="d-flex flex-row">    
+                      <input type="radio" id="NightLight1" checked name="preset" class="labelAlignment largerCheckbox lightPreset" value="NightLight1">
+                      <label for="NightLight1">Night</label>
+                    </div>                     
+                  </div>                                  
+                     
+                  </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+        
+        <!-- buttons for effects and controls -->
+        <div class="row p-0 item-card">       
+          <div class="d-flex py-1 justify-content-around">
+            <ul class="nav nav-pills d-flex px-0 justify-content-around mt-2" id="myTabLighting" role="tablist">
+              <li class="nav-item" >
+                <div class="btn-group mx-1" role="group" aria-label="Basic example">
+                  <button type="button" style="width:90px" class="px-2 py-0 buttons buttonC" id="lights-tab"
+                    data-bs-toggle="tab" data-bs-target="#lights" aria-controls="lights"
+                    aria-selected="false">Lights</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="btn-group mx-1" role="group" aria-label="Basic example">
+                  <button type="button" style="width:90px" class="px-2 py-0 active buttons buttonC toast_button">Controls</button>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="btn-group mx-1" role="group" aria-label="Basic example">
+                  <button type="button" style="width:100px" class="px-2 py-0 buttons buttonC toast_button">Light Modes</button>
+                </div>
+              </li>                 
+            </ul>
+          </div> 
+<!-- lights -->
+<div class="tab-pane fade show active position-relative pb-1" id="lights">
+  <div id="lightsTypesUIToast" class="toast top-0 position-absolute" style="z-index: 100;top:22%"
+    data-bs-autohide="false">
+    <div class="toast-header">
+      <strong class="me-auto furnitureName"></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body d-flex justify-content-center gap-2" style="background-color: white;">
+    </div>
+  </div>                
+  <div class="d-flex justify-content-center" id="lightsTypesUI">                  
+  </div>
+  <div>                 
+    <!-- <div class="d-flex justify-content-center gap-2" id="lightsAnimationsUI">                    
+    </div> -->
+  </div>
+</div>
+        </div>
+
+          
+  
+
+        </div>
+        <!-- ARRANGEMENT SECTION -->
+        <div class="Section_Container" style="display: none;">
+          <div class="d-flex py-1 justify-content-center">
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext"><svg
+                  id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M20 30 L8 16 20 2" />
+                </svg></button>
+            </div>
+            
+             <div class="col-auto text-center mx-5">
+              <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+                style="background-color:#FF5A50;">Arrangement</button>
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext">
+                <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M12 30 L24 16 12 2" />
+                </svg></button>
+            </div>
+          </div>
+      <div class="item-card">        
+          <div class="d-flex flex-row justify-content-around mt-2">
+            <input type="checkbox" class="btn-check" name="setOneBtns" id="selectTool" autocomplete="off">
+            <label class="buttons p-1 transforms" id="select" for="selectTool">
+              <div class="d-flex justify-content-center">
+                <p>Select</p>
+               
+                <img src="https://img.icons8.com/material-outlined/24/null/checked-checkbox.png" style="width:15px;height:15px;margin-left: 5px;margin-top: 2px;"/>
+              </div>
+            </label>                    
+            <input type="checkbox" class="btn-check" name="setOneBtns" id="Unselect" autocomplete="off">
+            <label class="buttons p-1 transforms" for="Unselect">
+              <div class="d-flex justify-content-center">
+                <p>Unselect</p>
+                
+                <img src="https://img.icons8.com/windows/32/null/maximize-button.png" style="width:15px;height:15px;margin-left: 5px;margin-top: 2px;"/>
+              </div>
+            </label>  
+            <input type="checkbox" class="btn-check" name="setOneBtns" id="DeleteT" autocomplete="off">
+            <label class="buttons p-1 transforms" for="DeleteT">
+              <div class="d-flex justify-content-center">
+                <p>Delete</p>
+                <img src="https://img.icons8.com/windows/32/null/trash.png" style="width:15px;height:15px;margin-left: 5px;margin-top: 2px;"/>
+              </div>
+                            
+            </label>    
+         </div>
+         <div class="d-flex flex-row justify-content-around mt-2">
+          <input type="radio" class="btn-check" name="transformTools" value="translate" id="translate"
+              autocomplete="off">
+          <label class="buttons p-1 transforms" for="translate">
+            <div class="d-flex justify-content-center">
+            <p>Move</p>
+            <img src="https://img.icons8.com/pastel-glyph/64/null/move-on-axis.png" style="width:15px;height:15px;margin-left: 5px;margin-top: 2px;"/>
+          </div>
+          </label>    
+          <input type="radio" class="btn-check" name="transformTools" value="rotate" id="rotate" autocomplete="off">
+          <label class="buttons p-1 transforms" for="rotate">
+            <div class="d-flex justify-content-center">
+            <p>Rotate</p>
+            <img src="https://img.icons8.com/external-justicon-lineal-justicon/64/null/external-3d-graphic-design-justicon-lineal-justicon.png" style="width:15px;height:15px;margin-left: 5px;margin-top: 2px;"/>
+          </div>
+          </label> 
+          <input type="radio" class="btn-check" name="transformTools" value="scale" id="Scale" autocomplete="off">
+          <label class="buttons p-1 transforms" for="Scale">
+            <div class="d-flex justify-content-center">
+              <p>Scale</p>                                   
+              <img src="https://img.icons8.com/windows/32/null/3d-scale.png" id="scaleImg" style="width:15px;height:15px;margin-left: 5px;margin-top: 2px;"/>
+            </div>                        
+          </label> 
+         </div>
+        </div> 
+          
+        </div>
+        <!-- NAVIGATION SECTION -->
+        <div class="Section_Container" style="display: none;">
+          <div class="d-flex py-1 justify-content-center">
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext"><svg
+                  id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M20 30 L8 16 20 2" />
+                </svg></button>
+            </div>
+            
+             <div class="col-auto text-center mx-5">
+              <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+                style="background-color:#FF5A50;">Navigation</button>
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext">
+                <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M12 30 L24 16 12 2" />
+                </svg></button>
+            </div>
+          </div>
+         
+          <!-- Toasts for viewpoints -->
+          <div class="row mx-auto">
+            <div class="tab-content d-flex">
+
+              <div class="tab-pane fade show active position-relative" id="controlsTab">
+                <!-- toast -->
+                <div class="toast top-0 position-absolute toastTypes" style="z-index: 100;top:22%;max-width: 250px;"
+                  data-bs-autohide="false">
+                  <div class="toast-header">
+                    <strong class="me-auto">Viewpoints</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                  </div>
+                  <div class="toast-body d-flex" style="background-color: white;">                  
+
+                    <div class="d-flex justify-content-center" style="font-size: 12px;" id="controlsUI">
+                      <div>
+                        <div class="d-flex flex-row pb-1"> 
+                        <input type="radio" id="Camera_Main_View" name="viewPoints" value="0" class="largerCheckbox">
+                        <label for="Camera_Main_View">Main</label>
+                        </div>
+                        <div class="d-flex flex-row pb-1"> 
+                        <input type="radio" id="Camera_Near_Table" name="viewPoints" value="3" class="largerCheckbox">
+                        <label for="Camera_Near_Table">Table</label>
+                        </div>
+                        <div class="d-flex flex-row pb-1"> 
+                        <input type="radio" id="Camera_Near_Chair" name="viewPoints" value="5" class="largerCheckbox">
+                        <label for="Camera_Near_Chair">Chair</label>
+                        </div>
+                        <div class="d-flex flex-row pb-1"> 
+                        <input type="radio" id="Camera_Near_Blinds" name="viewPoints" value="4" class="largerCheckbox">
+                        <label for="Camera_Near_Blinds">Blinds</label>
+                        </div>
+                        <div class="d-flex flex-row pb-1"> 
+                        <input type="radio" id="Camera_Focus_On_Cealing_Lights" name="viewPoints" value="1" class="largerCheckbox">
+                        <label for="Camera_Focus_On_Cealing_Lights">Ceiling</label>
+                        </div>
+                        <div class="d-flex flex-row pb-1"> 
+                        <input type="radio" id="Camera_Back_View" name="viewPoints" value="2" class="largerCheckbox">
+                        <label for="Camera_Back_View">Back</label>                                         
+                         </div> 
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>      
+            </div>
+          </div>
+
+          <!-- buttons -->
+            <div class="item-card navigationBtn" id="Navigation">
+            <div class="d-flex flex-row justify-content-around">
+              <div class="buttons navigationOpt">              
+                  <input type="checkbox" id="Zoom" class="checkb mt-1" name="basicControls" checked autocomplete="off">
+                  <label for="Zoom">Zoom<svg
+                    xmlns="http://www.w3.org/2000/svg" width="13pt" height="13pt" style="margin-left: 5px;" fill="currentColor"
+                    class="bi bi-search" viewBox="0 0 16 16">
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg></label>   
+              </div>
+              <div class="buttons navigationOpt">
+                <input type="checkbox" id="Pan" class="checkb mt-1" name="basicControls" checked autocomplete="off">
+                  <label for="Pan">Pan
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13pt" style="margin-left: 5px;"
+                    height="13pt" fill="currentColor" class="bi bi-arrows-move" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10zM.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708l-2-2zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8z" />
+                  </svg></label>                   
+              </div>
+            </div>
+            <div class="d-flex flex-row justify-content-around mt-2">
+              <div class="buttons navigationOpt">
+                <input type="checkbox" id="Rotate1" class="checkb mt-1" name="basicControls" checked autocomplete="off">
+                  <label for="Rotate1">Rotate
+                    <svg width="18pt" height="18pt" style="margin-top: 5px;"
+                    fill="currentColor" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="m227.5 274.57v-109.9l105 57.926v120.23l-96.426-52.5v-0.003906c-2.7148-1.6055-4.9492-3.918-6.457-6.6914-1.5117-2.7734-2.2422-5.9023-2.1172-9.0586zm246.05 0v-109.9l-105 57.926v120.23l96.426-52.5v-0.003906c5.1328-3.5352 8-9.5352 7.5234-15.75zm-18.551-139.47-95.727-52.5c-2.6602-1.5391-5.6758-2.3477-8.75-2.3477-3.0703 0-6.0898 0.80859-8.75 2.3477l-95.727 52.5 103.95 57.398zm52.5 49v41.648c24.652 15.066 40.445 41.172 42.352 70 0 46.551-51.625 89.426-128.62 106.75-6.2539 0.6875-11.664 4.6602-14.195 10.418-2.5312 5.7578-1.7969 12.43 1.9258 17.5 3.7227 5.0703 9.8672 7.7695 16.117 7.082 1.2188 0.17188 2.457 0.17188 3.6758 0 94.852-21.176 156.1-76.477 156.1-140 0.52344-45.324-27.828-85.574-77.352-113.4zm-175 199.15-8.5742-9.2734c-2.1914-2.3438-4.9805-4.0391-8.0664-4.9023s-6.3477-0.86328-9.4336 0c-2.6992 0.60938-5.1797 1.9414-7.1758 3.8516-3.4023 3.1367-5.4219 7.4961-5.6211 12.121-0.19531 4.625 1.4492 9.1367 4.5703 12.555l8.3984 9.1016c-90.301-11.199-157.5-57.75-157.5-111.65l0.003906-0.003907c2.3516-28.777 18.535-54.621 43.398-69.301v-41.648c-49 27.824-77.352 68.074-77.352 110.95 0 72.977 79.801 133.18 189.35 146.65l-8.5742 6.8242c-3.7852 3.0352-6.1367 7.5078-6.5 12.344-0.36328 4.8398 1.2969 9.6094 4.5859 13.176 3.2891 3.5625 7.9141 5.6055 12.762 5.6328 3.9922-0.074219 7.8555-1.4258 11.027-3.8516l43.75-35c3.793-3.0586 6.1406-7.5625 6.4727-12.426 0.3125-4.8398-1.3984-9.5938-4.7227-13.125z" />
+                  </svg></label>                 
+              </div>
+              <div>
+                <button type="button" class="buttons buttonC toast_button">Viewpoints</button>
+              </div>
+            </div>
+          </div> 
+
+
+        </div>
+        <!-- ADVANCED SECTION -->
+        <div class="Section_Container" style="display: none;">
+          <div class="d-flex py-1 justify-content-center">
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext"><svg
+                  id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M20 30 L8 16 20 2" />
+                </svg></button>
+            </div>
+            
+             <div class="col-auto text-center mx-5">
+              <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+                style="background-color:#FF5A50;">Advanced</button>
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext">
+                <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M12 30 L24 16 12 2" />
+                </svg></button>
+            </div>
+          </div>
+
+           <!-- toast render-->
+         <div class="tab-pane fade show active position-relative">
+          <div class="toast top-0 position-absolute toastTypes" id="renderUI" style="z-index: 100;top:22%;max-width: 300px;"
+          data-bs-autohide="false">
+          <div class="toast-header">
+            <strong class="me-auto">Render</strong>
+            <button type="button" class="btn-close" id="closeRender" data-bs-dismiss="toast"></button>
+          </div>
+          <div class="toast-body d-flex justify-content-center gap-2" style="background-color: white;">                  
+
+            <div class="d-flex justify-content-center" style="font-size: 12px;" id="controlsUI">
+              
+              <div>                                
+                <form name = "passdata">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div> 
+                   <p  class="buttons" style="background-color: #FF5A50;color: #FFFFFF;padding-top: 4px;" id="Export_Image">Image Render</p> 
+                   <p  class="buttons" style="background-color: #FF5A50;color: #FFFFFF;padding-top: 4px;" id="Export_Video">Video Render</p> 
+                  
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>   
+      
+        <!-- toast -->
+        <div class="tab-pane fade show active position-relative">
+          <div class="toast top-0 position-absolute toastTypes" style="z-index: 100;top:22%;max-width: 300px;"
+          data-bs-autohide="false">
+          <div class="toast-header">
+            <strong class="me-auto">Floor,Walls,Roof</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+          </div>
+          <div class="toast-body d-flex justify-content-start gap-2" style="background-color: white;">                  
+            <div class="d-flex justify-content-center" style="font-size: 12px;" id="controlsUI">             
+              <div class="p-2 d-flex flex-column" id="themesDiv"> 
+              
+            </div>
+            </div>       
+          </div>
+        </div>
+      </div>
+     
+          <!-- buttons -->
+          <div class="item-card navigationBtn" id="Advanced">
+            <div class="d-flex flex-row justify-content-around">              
+              <div id="buttonR">
+                <button class="buttons buttonC toast_button" id="renderUI_button">Render</button>                         
+              </div>
+              <button type="submit" id="RenderButton" class="buttons" style="background-color: #FF5A50;color: #FFFFFF;">Export</button>
+
+              <div id="Themes">
+                <button class="buttons buttonC toast_button">Themes</button>                         
+              </div>
+            </div>
+
+            
+            <div class="d-flex flex-row justify-content-around mt-2">  
+             
+
+              <div class="measurementsHC">                 
+                  <input type="checkbox" class="btn-check" name="setOneBtns" id="measurementsTool" autocomplete="off">
+                  <label class="buttons buttonC p-1 Measurements" for="measurementsTool">Measurements</label> 
+                  <span class="measurementsHover">click on two different places on the screen to get measurements</span>                              
+              </div>
+              
+            </div>
+            
+          </div> 
+        </div>
+        <!-- SETTINGS SECTION -->
+        <div class="Section_Container" style="display: none;">
+          <div class="d-flex py-1 justify-content-center">
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext"><svg
+                  id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M20 30 L8 16 20 2" />
+                </svg></button>
+            </div>
+            
+             <div class="col-auto text-center mx-5">
+              <button type="button" class="btn px-5 py-1 text-light btn-sm active"
+                style="background-color:#FF5A50;">Settings</button>
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn rounded-circle btn-outline-secondary p-2 d-flex justify-content-center prevNext">
+                <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12"
+                  fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                  <path d="M12 30 L24 16 12 2" />
+                </svg></button>
+            </div>
+          </div>
+
+          <!-- toast -->
+          <div class="tab-pane fade show active position-relative">
+          <div class="toast top-0 position-absolute toastTypes" style="z-index: 100;top:22%;max-width: 300px;"
+          data-bs-autohide="false">
+          <div class="toast-header">
+            <strong class="me-auto">Preferences</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+          </div>
+          <div class="toast-body d-flex justify-content-start gap-2" style="background-color: white;">                  
+            <div class="d-flex justify-content-center" style="font-size: 12px;" id="controlsUI">             
+              <div class="p-2"> 
+                <div class="d-flex flex-row pb-1"> 
+            <input type="checkbox" id="Console" name="effects" value="Console" class="largerCheckbox">
+            <label for="Console">Console</label> 
+            </div>
+            <div class="d-flex flex-row pb-1"> 
+            <input type="checkbox" id="bounding_box" name="effects" value="bounding_box" class="largerCheckbox">
+            <label for="bounding_box">Bounding Box</label>
+            </div>
+            </div>
+            </div>       
+          </div>
+        </div>
+      </div>
+          <!-- buttons -->
+          <div class="item-card navigationBtn pt-3" id="Navigation">
+            <div class="d-flex flex-row justify-content-around">
+              <div id="buttonPre">  
+                <button class="buttons buttonC toast_button" id="Preferences">Preferences</button>            
+                    
+              </div>
+              <div id="buttonReload">
+                <button class="buttons buttonC" id="Reload">Reload</button>                         
+              </div>
+              <div id="buttonHelp">
+                <button class="buttons buttonC" id="Help">Help</button>                
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+    
+  <script type="module" src="./index.js"></script> 
+  <script type="module" src="./uiElements.js"></script>    
+</body>
+
+</html>
