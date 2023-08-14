@@ -1,5 +1,9 @@
 import { World } from "./three_js/World.js";
 import { Clock } from "three";
+let mobile = false;
+if (/Android|iPhone/i.test(navigator.userAgent)) {
+  mobile = true;
+}
 let clock = new Clock();
 let delta;
 async function main() {  
@@ -8,15 +12,16 @@ async function main() {
   const world = new World();
   world.createUI();  
   world.loadBackground();
+  
   await world.loadRoomGLTF() 
   await world.loadBlindsGLTF()
   await world.loadLightsGLTF()
    
   world.createTransfromCtrls();
   world.createPostProcess();
-  world.createMeasurements(); 
-  // world.lightPresets(); 
+  world.createMeasurements();   
   world.start(); 
+  if(mobile){
   let Spinner = document.getElementById("Spinner");     
 
   let load_furniture_btn=document.getElementById("load_furniture_btn");
@@ -44,22 +49,22 @@ async function main() {
   delta = clock.getDelta();
   console.log("lighting loading time = ",delta.toPrecision(3),"secs") 
   })
-let load_everything_btn=document.getElementById("load_Accessories_btn");
-load_everything_btn.addEventListener("click",async function(){
-  delta = clock.getDelta();
-  Spinner.style.display="block"; 
-  await Promise.all([                                   
-    await world.loadPlants(),
-    await world.loadMirrorGLTF(),  
-    await world.loadAccessoriesGLTF(),
-    await world.loadWallPlantsGLTF()  
-  ]);                               
-  Spinner.style.display="none"; 
-  delta = clock.getDelta();
-  console.log("accessories loading time = ",delta.toPrecision(3),"secs") 
-  })
+  let load_everything_btn=document.getElementById("load_Accessories_btn");
+  load_everything_btn.addEventListener("click",async function(){
+    delta = clock.getDelta();
+    Spinner.style.display="block"; 
+    await Promise.all([                                   
+      await world.loadPlants(),
+      await world.loadMirrorGLTF(),  
+      await world.loadAccessoriesGLTF(),
+      await world.loadWallPlantsGLTF()  
+    ]);                               
+    Spinner.style.display="none"; 
+    delta = clock.getDelta();
+    console.log("accessories loading time = ",delta.toPrecision(3),"secs") 
+    })
+  }
 
-  
 }
 
 main().catch((err) => {

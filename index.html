@@ -116,9 +116,199 @@
       </div>
 
       <!-- UI -->
-      <div class="col border overflow-auto vh-40" id="UI">
+      <div class="col border overflow-auto" id="UI">
+
+      <div id="desktopUI" class="d-flex">
+        <div class="verticalTab" style="width: 80%;">
+
+        <div class="tab">
+        <div class="d-flex flex-column justify-content: space-between;align-items: flex-start;">
+        <div>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Furniture_Dekstop')" id="defaultVerticalOpen"><img src="./icons/desktopUI/furniture.svg" class="icon"/>Furniture</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Lighting_Desktop')"><img src="./icons/desktopUI/light.svg" class="icon"/>Lighting</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Paints_Desktop')"><img src="./icons/desktopUI/paint.svg" class="icon"/>Paints</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Tiles_Desktop')"><img src="./icons/desktopUI/tiles.svg" class="icon"/>Tiles</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Carpets_Desktop')"><img src="./icons/desktopUI/carpet.svg" class="icon"/>Carpets</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'DoorsWindows_Desktop')" style="font-size: 10px;"><img src="./icons/desktopUI/door.svg" class="icon"/>Doors/Windows</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Accessories_Desktop')"><img src="./icons/desktopUI/accessories.svg" class="icon"/>Accessories</button>
+        </div>
+        <div style="margin-top: 100%;">
+          <!-- bottom buttons comes here -->
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/spin.svg" class="icon"/>360Spins</button>
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')" style="font-size: 10px;"><img src="./icons/desktopUI/measurements.svg" class="icon"/>Measurements</button>
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/render.svg" class="icon"/>HD Render</button>
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/collaboration.svg" class="icon"/>Collaboration</button>
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/Advanced.svg" class="icon"/>Advanced</button>
+          <button style="background: linear-gradient(133deg, #FFC1BD 0%, #FFDEBF 100%);" class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/open_Project.svg" class="icon"/>Open project</button>
+          <button style="background: linear-gradient(133deg, #FFC1BD 0%, #FFDEBF 100%);" class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/save_Project.svg" class="icon"/>Save project</button>
+        </div>
+      </div>
+
+        </div>                
+        <div id="Furniture_Dekstop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Chair_Desktop')" id="defaultHorizontalOpen">Chair</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Table_Desktop')">Table</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Sofa_Desktop')">Sofa</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Bed_Desktop')">Bed</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Cabinets_Desktop')">Cabinets</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Dresser_Desktop')">Dresser</button>
+            </div>        
+            <div id="Chair_Desktop" class="tabcontent_horizontal">
+              <p>Chair Coming Soon</p>                           
+            </div>        
+            <div id="Table_Desktop" class="tabcontent_horizontal">
+              <p>Table Coming Soon</p>              
+            </div>        
+            <div id="Sofa_Desktop" class="tabcontent_horizontal">
+              <p>Sofa Coming Soon</p>
+            </div>  
+            <div id="Bed_Desktop" class="tabcontent_horizontal">
+              <p>Bed Coming Soon</p>
+            </div>  
+            <div id="Cabinets_Desktop" class="tabcontent_horizontal">
+              <p>Cabinets Coming Soon</p>
+            </div>  
+            <div id="Dresser_Desktop" class="tabcontent_horizontal">
+              <p>Dresser Coming Soon</p>
+            </div>          
+          </div>
+        </div>        
+        <div id="Lighting_Desktop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Floor_Desktop')" id="LightdefaultHorizontalOpen">Floor</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'TableLighting_Desktop')">Table</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Chandelier_Desktop')">Chandelier</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Wall_Desktop')">Wall</button>
+            </div>        
+            <div id="Floor_Desktop" class="tabcontent_horizontal">
+              <p>Floor Coming Soon</p>                           
+            </div>        
+            <div id="TableLighting_Desktop" class="tabcontent_horizontal">
+              <p>Table Lamp Coming Soon</p>              
+            </div>        
+            <div id="Chandelier_Desktop" class="tabcontent_horizontal">
+              <p>Chandelier Coming Soon</p>
+            </div>  
+            <div id="Wall_Desktop" class="tabcontent_horizontal">
+              <p>Wall Lamp Coming Soon</p>
+            </div>                       
+          </div>         
+        </div>        
+        <div id="Paints_Desktop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Colors_Desktop')" id="PaintsdefaultHorizontalOpen">Colors</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Textures_Desktop')">Textures</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Stencils_Desktop')">Stencils</button>              
+            </div>        
+            <div id="Colors_Desktop" class="tabcontent_horizontal">
+              <p>Colors Coming Soon</p>                           
+            </div>        
+            <div id="Textures_Desktop" class="tabcontent_horizontal">
+              <p>Textures Coming Soon</p>              
+            </div>        
+            <div id="Stencils_Desktop" class="tabcontent_horizontal">
+              <p>Stencils Coming Soon</p>
+            </div>                                  
+          </div>          
+        </div>
+        <div id="Tiles_Desktop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Wood_Desktop')" id="TilesdefaultHorizontalOpen">Wood</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Marble_Desktop')">Marble</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Granite_Desktop')">Granite</button>              
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Vitrified_Desktop')">Vitrified</button> 
+            </div>        
+            <div id="Wood_Desktop" class="tabcontent_horizontal">
+              <p>Wood Coming Soon</p>                           
+            </div>        
+            <div id="Marble_Desktop" class="tabcontent_horizontal">
+              <p>Marble Coming Soon</p>              
+            </div>        
+            <div id="Granite_Desktop" class="tabcontent_horizontal">
+              <p>Granite Coming Soon</p>
+            </div>  
+            <div id="Vitrified_Desktop" class="tabcontent_horizontal">
+              <p>Vitrified Coming Soon</p>
+            </div>                                  
+          </div>          
+        </div>
+        <div id="Carpets_Desktop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'WallToWall_Desktop')" id="CarpetsdefaultHorizontalOpen">Wall to wall</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'AreaRugs_Desktop')">Area rugs</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'RunnerRugs_Desktop')">Runner rugs</button>              
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'KidsRugs_Desktop')">Kid's rugs</button> 
+            </div>        
+            <div id="WallToWall_Desktop" class="tabcontent_horizontal">
+              <p>Wall to wall Coming Soon</p>                           
+            </div>        
+            <div id="AreaRugs_Desktop" class="tabcontent_horizontal">
+              <p>Area Rugs Coming Soon</p>              
+            </div>        
+            <div id="RunnerRugs_Desktop" class="tabcontent_horizontal">
+              <p>Runner Rugs Coming Soon</p>
+            </div>  
+            <div id="KidsRugs_Desktop" class="tabcontent_horizontal">
+              <p>Kids Rugs Coming Soon</p>
+            </div>                                  
+          </div>          
+        </div>
+        <div id="DoorsWindows_Desktop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'windowBlinds_Desktop')" id="DoorsdefaultHorizontalOpen">Window Blinds</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Window_Desktop')">Window</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Doors_Desktop')">Doors</button>              
+            </div>        
+            <div id="windowBlinds_Desktop" class="tabcontent_horizontal">
+              <p>Window Blinds Coming Soon</p>                           
+            </div>        
+            <div id="Window_Desktop" class="tabcontent_horizontal">
+              <p>Window Coming Soon</p>              
+            </div>        
+            <div id="Doors_Desktop" class="tabcontent_horizontal">
+              <p>Doors Coming Soon</p>
+            </div>                                  
+          </div>          
+        </div>
+        <div id="Accessories_Desktop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="tabH">
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'WallPaper_Desktop')" id="AccessoriesdefaultHorizontalOpen">Wall Paper</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Sculpture_Desktop')">Sculpture</button>
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Curtains_Desktop')">Curtains</button>              
+              <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Plants_Desktop')">Plants</button>              
+            </div>        
+            <div id="WallPaper_Desktop" class="tabcontent_horizontal">
+              <p>Wall Papers Coming Soon</p>                           
+            </div>        
+            <div id="Sculpture_Desktop" class="tabcontent_horizontal">
+              <p>Sculpture Coming Soon</p>              
+            </div>        
+            <div id="Curtains_Desktop" class="tabcontent_horizontal">
+              <p>Curtains Coming Soon</p>
+            </div>   
+            <div id="Plants_Desktop" class="tabcontent_horizontal">
+              <p>Plants Coming Soon</p>
+            </div>                                  
+          </div>          
+        </div>
+      </div>
+
+      <div class="sidebarUI_desktop" style="width: 20%;">
+        side Ui
+      </div>
+      </div>
+
+        <div id="mobileUI">
         <!-- WELCOME SECTION -->
-        <div class="Section_Container">
+        <div class="Section_Container" style="display: none;">
           <div class="d-flex py-1 flex-row justify-content-center">          
               <div class="col-auto text-center mx-5">                
                 <button type="button" class="btn px-5 py-1 text-light btn-sm active"
@@ -964,10 +1154,61 @@
           </div>
         </div>
       </div>
+
+      </div>
     </div>
 
   </div>
 
+  <script>
+    function openVerticalTab(evt, verticalTabName) {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent_vertical");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks_vertical");
+    for (i = 0; i < tablinks.length; i++) {
+       tablinks[i].className = tablinks[i].className.replace(" active", "");      
+    }
+    document.getElementById(verticalTabName).style.display = "block";
+    evt.currentTarget.className += " active";
+    
+    if(verticalTabName=="Lighting_Desktop"){
+      document.getElementById("LightdefaultHorizontalOpen").click();
+    }else if(verticalTabName=="Paints_Desktop"){
+      document.getElementById("PaintsdefaultHorizontalOpen").click();
+    }else if(verticalTabName=="Tiles_Desktop"){
+      document.getElementById("TilesdefaultHorizontalOpen").click();
+    }else if(verticalTabName=="Carpets_Desktop"){
+      document.getElementById("CarpetsdefaultHorizontalOpen").click();
+    }else if(verticalTabName=="DoorsWindows_Desktop"){
+      document.getElementById("DoorsdefaultHorizontalOpen").click();
+    }else if(verticalTabName=="Accessories_Desktop"){
+      document.getElementById("AccessoriesdefaultHorizontalOpen").click();
+    }else{
+      document.getElementById("defaultHorizontalOpen").click();
+    }
+  }
+  function openHorizontalTab(evt, horizontalTabName) {
+    let i, tabcontentH, tablinksH;
+    tabcontentH = document.getElementsByClassName("tabcontent_horizontal");
+    for (i = 0; i < tabcontentH.length; i++) {
+      tabcontentH[i].style.display = "none";
+    }
+    tablinksH = document.getElementsByClassName("tablinks_horizontal");
+    for (i = 0; i < tablinksH.length; i++) {
+      tablinksH[i].className = tablinksH[i].className.replace(" active", "");
+    }
+    document.getElementById(horizontalTabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  
+  document.getElementById("defaultVerticalOpen").click();
+  document.getElementById("defaultHorizontalOpen").click();
+  </script>
+    
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>

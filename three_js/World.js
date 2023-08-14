@@ -649,21 +649,22 @@ async loadLightsGLTF() {
 
     NightLight1_Fun();        
 
-
-    lightControls(
-      scene,
-      renderer,
-      prompt,
-      sunLight,
-      ambientLightSun,
-      camera,
-      clock,
-      stateList,
-      gui,
-      this.lightState,
-      fanLight,
-      [cylindricalLampSpotLight_1,cylindricalLampSpotLight_2,cylindricalLampSpotLight_3,cylindricalLampSpotLight_4],
-    );
+    if(mobile){
+      lightControls(
+        scene,
+        renderer,
+        prompt,
+        sunLight,
+        ambientLightSun,
+        camera,
+        clock,
+        stateList,
+        gui,
+        this.lightState,
+        fanLight,
+        [cylindricalLampSpotLight_1,cylindricalLampSpotLight_2,cylindricalLampSpotLight_3,cylindricalLampSpotLight_4],
+      );
+    }
 
   }
   //CreatePostProcess Effects
