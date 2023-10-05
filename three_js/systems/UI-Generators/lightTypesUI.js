@@ -1,3 +1,7 @@
+let mobile = false;
+if (/Android|iPhone/i.test(navigator.userAgent)) {
+  mobile = true;
+}
 const lightTypesUI = function (
   assetsList,
   UIContainer,
@@ -34,15 +38,22 @@ const lightTypesUI = function (
     
 
     let label = document.createElement("label");
-    label.className = "btn px-0 py-0 position-relative border-2";    
+       
     label.setAttribute("for", assetsList[i].Name);
 
     let img = document.createElement("img");
     img.src = assetsList[i].thumbnail;
-    img.className = "img-thumbnail p-0 img-max-width-1";
+    
     img.alt = "chair_1";
     img.style.background="#ffffff";
     
+    if(mobile){      
+      label.className = "btn px-0 py-0 position-relative border-2";       
+      img.className = "img-thumbnail p-0 img-max-width-1";       
+      }else{    
+        label.className = "btn px-0 py-0 position-relative border-1"; 
+        img.className = "Objectthumbnail";        
+      }
     spinnerContainer.appendChild(spinner);
 
     spinnerContainer.style.display = "none";    
@@ -53,15 +64,9 @@ const lightTypesUI = function (
     UIContainer.appendChild(input);
     UIContainer.appendChild(label);       
 
-    let container_3d=document.getElementById("3dcontainer");
-    //On Click Show the Toast(animation buttons and material variations)
-    //const liveToast = document.getElementById(`${UIContainer.id}Toast`);    
-    input.addEventListener("click", function () {
-     //liveToast.classList.add("show");
-      //liveToast.getElementsByClassName("furnitureName")[0].innerHTML =
-        // assetsList[i].Name;      
-        container_3d.appendChild(spinnerContainer);   
-     
+    let container_3d=document.getElementById("3dcontainer");  
+    input.addEventListener("click", function () {     
+        container_3d.appendChild(spinnerContainer);        
     });
   }
 };

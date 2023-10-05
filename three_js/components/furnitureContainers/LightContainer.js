@@ -3,7 +3,6 @@ import { gltfLoad } from "../gltf_loader/gltfLoad.js";
 import { AnimationMixer,
   Group,
  } from "three";
-import { setupModel } from "./setupModel";
 let lamp_val=0
 class LightContainer {
   constructor(assetsList, lightsTypesUI, category, initialModelID,selectableObjects,scene,renderer) {
@@ -39,7 +38,7 @@ class LightContainer {
       let modelURL = await fetch(URL); 
       const { gltfData } = await gltfLoad(modelURL.url);    
       
-      let loadedModel = setupModel(gltfData);                 
+      let loadedModel = gltfData.scene;                 
       this.models[i] = loadedModel;
       
       this.spinnerDisplay(spinner, "none");

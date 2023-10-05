@@ -99,8 +99,56 @@
       <!-- 3D Scene Container -->
       <div class="col-lg-7 m-0 p-0 position-relative links" id="3dcontainer">       
         
+        <!-- <div id="css"></div> -->
         <div id="scene-container"></div> 
-              
+        <div style="display: flex;">
+      <button id="help3DButton" class="position-fixed top-50 start-50 button3">
+        <svg class="helpImage" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 0C8.02219 0 6.08879 0.58649 4.4443 1.6853C2.79981 2.78412 1.51809 4.3459 0.761209 6.17316C0.00433283 8.00043 -0.1937 10.0111 0.192152 11.9509C0.578004 13.8907 1.53041 15.6725 2.92894 17.0711C4.32746 18.4696 6.10929 19.422 8.0491 19.8078C9.98891 20.1937 11.9996 19.9957 13.8268 19.2388C15.6541 18.4819 17.2159 17.2002 18.3147 15.5557C19.4135 13.9112 20 11.9778 20 10C20 7.34783 18.9464 4.80429 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0ZM10 18.5714C8.30473 18.5714 6.64754 18.0687 5.23797 17.1269C3.82841 16.185 2.72979 14.8464 2.08104 13.2801C1.43229 11.7139 1.26254 9.99049 1.59327 8.3278C1.924 6.6651 2.74035 5.13782 3.93909 3.93908C5.13782 2.74035 6.66511 1.924 8.3278 1.59327C9.99049 1.26254 11.7139 1.43228 13.2801 2.08103C14.8464 2.72978 16.185 3.8284 17.1269 5.23797C18.0687 6.64753 18.5714 8.30473 18.5714 10C18.5714 12.2733 17.6684 14.4535 16.0609 16.0609C14.4535 17.6684 12.2733 18.5714 10 18.5714Z" fill="#27282D"/>
+        <path d="M10 14.5V15" stroke="#27282D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 12V10.7797C10 10.1072 10.4385 9.50287 11.1075 9.2532C11.9485 8.93913 12.5 8.17893 12.5 7.33333C12.5 6.04487 11.3805 5 10 5C8.6195 5 7.5 6.04487 7.5 7.33333" stroke="#27282D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div>
+      <button id="dayLight_Desktop" style="display: none;" class="position-fixed top-50 start-50 button3">
+        <svg class="LightModesImage" xmlns="http://www.w3.org/2000/svg" width="55" height="30" viewBox="0 0 55 30" fill="none">
+        <rect width="54.2308" height="30" rx="15" fill="url(#paint0_linear_767_11661)"/>
+        <rect x="4.61523" y="4.61542" width="20.7692" height="20.7692" rx="10.3846" fill="url(#paint1_radial_767_11661)"/>
+        <rect x="36.6924" y="4.61542" width="5.53846" height="5.53846" rx="2.76923" fill="white"/>
+        <rect x="31.1538" y="13.6154" width="3" height="3" rx="1.5" fill="white"/>
+        <defs>
+          <linearGradient id="paint0_linear_767_11661" x1="27.1154" y1="-1.09348e-06" x2="6.81818" y2="11.5909" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF9A50"/>
+            <stop offset="1" stop-color="#FF7050"/>
+          </linearGradient>
+          <radialGradient id="paint1_radial_767_11661" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(15 15) rotate(90) scale(10.5 10.5)">
+            <stop stop-color="#FFA336"/>
+            <stop offset="0.9999" stop-color="#FFE17D"/>
+            <stop offset="1" stop-color="#FFE977"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </button>
+    <button id="nightLight_Desktop" class="position-fixed top-50 start-50 button3">
+      <svg class="LightModesImage1" xmlns="http://www.w3.org/2000/svg" width="55" height="30" viewBox="0 0 55 30" fill="none">
+        <rect width="54.2308" height="30" rx="15" fill="url(#paint0_linear_429_945)"/>
+        <path d="M42.4457 10.9351C42.2196 9.22407 41.5466 7.6842 40.5647 6.40787C40.3269 6.09917 40.5643 5.64751 40.9515 5.69384C45.4142 6.23208 49.0749 9.89902 49.3014 14.6999C49.5143 19.2316 46.3756 23.368 41.9525 24.3789C38.8835 25.0805 35.8972 24.2298 33.7147 22.4025C33.42 22.1553 33.5796 21.6699 33.9624 21.6356C34.064 21.6269 34.1667 21.6154 34.2692 21.6018C39.4725 20.9145 43.1332 16.1394 42.4457 10.9351Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M40.9938 5.33991C40.2626 5.25239 39.8706 6.09101 40.2823 6.62542C41.2274 7.85395 41.8748 9.33532 42.0923 10.9818C42.754 15.9909 39.2306 20.5869 34.2225 21.2485C34.1247 21.2614 34.0274 21.2722 33.932 21.2804L33.9313 21.2805L33.9306 21.2805C33.2445 21.342 32.9382 22.2164 33.4856 22.6756L33.4859 22.6758C35.7495 24.571 38.8488 25.454 42.0319 24.7264C46.6234 23.6771 49.8785 19.387 49.6574 14.6831L49.6574 14.6831C49.4225 9.70249 45.6236 5.8983 40.9941 5.33995L40.9938 5.33991ZM48.9453 14.7166C48.7273 10.0956 45.2048 6.56595 40.9089 6.04776L48.9453 14.7166ZM40.9089 6.04776C40.8872 6.04519 40.8753 6.04962 40.8677 6.05387C40.8581 6.0592 40.8468 6.06947 40.838 6.086C40.8202 6.11926 40.8213 6.15685 40.8471 6.19032L40.8472 6.19051C41.8659 7.51459 42.5645 9.11289 42.799 10.8884C43.5123 16.2878 39.7143 21.2421 34.3159 21.9552C34.2091 21.9693 34.1013 21.9814 33.994 21.9906C33.9732 21.9925 33.9603 21.9994 33.9507 22.0075C33.9396 22.0169 33.9294 22.0313 33.9235 22.0495C33.9176 22.0676 33.9178 22.0839 33.9208 22.0956C33.9232 22.1052 33.9284 22.1165 33.9438 22.1294C36.0451 23.8886 38.9183 24.7068 41.873 24.0314C46.1278 23.059 49.1501 19.0761 48.9453 14.7167" fill="white"/>
+        <rect x="28.269" y="7.38458" width="2.88462" height="2.88462" rx="1.44231" fill="white"/>
+        <rect x="25.3848" y="12.0721" width="1.5625" height="1.5625" rx="0.78125" fill="white"/>
+        <path d="M17.4628 4.80298L18.0395 6.53466L19.7894 6.57386C19.9861 6.57842 20.0675 6.84006 19.9104 6.96496L18.516 8.07444L19.0217 9.83073C19.0787 10.0281 18.8668 10.1899 18.7045 10.0719L17.2657 9.0262L15.8273 10.0719C15.6654 10.1899 15.453 10.0276 15.51 9.83073L16.0153 8.07444L14.6205 6.96496C14.4647 6.84052 14.5456 6.57797 14.7419 6.57386L16.4923 6.53466L17.0685 4.80298C17.1351 4.6088 17.3975 4.6088 17.4628 4.80298Z" fill="white"/>
+        <path d="M24.0138 21.2899L24.331 22.2423L25.2935 22.2639C25.4017 22.2664 25.4464 22.4103 25.36 22.479L24.5931 23.0892L24.8712 24.0551C24.9026 24.1637 24.786 24.2527 24.6968 24.1878L23.9054 23.6126L23.1143 24.1878C23.0253 24.2527 22.9085 24.1634 22.9398 24.0551L23.2177 23.0892L22.4506 22.479C22.3649 22.4105 22.4094 22.2661 22.5173 22.2639L23.4801 22.2423L23.797 21.2899C23.8336 21.1831 23.9779 21.1831 24.0138 21.2899Z" fill="white"/>
+        <circle cx="10.5681" cy="20.1136" r="1.02273" fill="white"/>
+        <defs>
+          <linearGradient id="paint0_linear_429_945" x1="6.81818" y1="1.69375e-06" x2="51.1364" y2="31.3636" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#474B5F"/>
+            <stop offset="1" stop-color="#27282D"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </button>
+    </div>
+    </div>
        <div id="loadingSpinner" class="position-absolute top-50 start-50 translate-middle" style="color:#FFFFFF"><strong>Loading...</strong>
           <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>        
         </div> 
@@ -118,13 +166,52 @@
       <!-- UI -->
       <div class="col border overflow-auto" id="UI">
 
-      <div id="desktopUI" class="d-flex">
+      <div id="desktopUI">
+
+        <div class="home_card_container" id="home_card_container_Desktop">
+          <div class="d-flex">
+          <div style="display: flex;margin-top: 55px;margin-left: -15px;margin-bottom: 25px;">
+            <img src="./icons/desktopUI/logo.svg" style="width: 30px;height: 30px;"/>                   
+            <img src="./icons/desktopUI/name.svg" style="width: 120px;height: 30px;"/>                               
+          </div>
+          <div id="home_card_close" style="margin-left: 300px;margin-bottom: 20px;margin-top: 20px;">
+            <img id="home_card_close_Desktop" src="./icons/close.png" style="width: 15px;height: 15px;"/>                   
+        </div>
+      </div>
+        <div>
+          <h1 class="home_card_head">Welcome to Showroom3D</h1>
+            <ul >
+                <li class="home_card_points">A Try & Buy 3DCommerce innovation</li>
+                <li class="home_card_points">Leapfrogging Amazon Showroom</li>
+                <li class="home_card_points">Mix, match, customize & layout furniture to your liking</li>
+                <li class="home_card_points">Live lighting and measurements</li>
+                <li class="home_card_points">Paints and flooring</li>
+                <li class="home_card_points">Photo-realistic images and video.</li>
+            </ul>    
+            <div class="home_video_tour_container">                                        
+            <div class="d-flex flex-row justify-content-center">
+              <a class="home_video_tour_btn" style="text-decoration: none;" id="Tour" href="https://youtu.be/wYvqHJ7FNAM" target="_blank">
+                Video Tour
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="15" viewBox="0 0 27 16" fill="none">
+                  <path d="M1 7C0.447715 7 -4.82823e-08 7.44772 0 8C4.82823e-08 8.55228 0.447715 9 1 9L1 7ZM26.7071 8.7071C27.0976 8.31658 27.0976 7.68342 26.7071 7.29289L20.3431 0.92893C19.9526 0.538406 19.3195 0.538406 18.9289 0.928931C18.5384 1.31946 18.5384 1.95262 18.9289 2.34314L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.7071ZM1 9L26 9L26 7L1 7L1 9Z" fill="#FF5A50"/>
+                </svg>                    
+              </a>                                              
+            </div>  
+            <img src="./icons/3DCommerceLogo.png" class="commerce_logo" style="margin-top: -90px;margin-left: 570px;"/>     
+          </div>
+            
+        </div>            
+        </div> 
+
+        <div id="desktopUIContainer" style="display: none;">
+        <div class="d-flex" style="height: 100%;width: 100%;">
         <div class="verticalTab" style="width: 80%;">
 
         <div class="tab">
-        <div class="d-flex flex-column justify-content: space-between;align-items: flex-start;">
+        <div class="d-flex flex-column justify-content-between;">
         <div>
-          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Furniture_Dekstop')" id="defaultVerticalOpen"><img src="./icons/desktopUI/furniture.svg" class="icon"/>Furniture</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'SampleRoom_Dekstop')" id="defaultVerticalOpen"><img src="./icons/desktopUI/room.svg" style="width: 12px;height: 12px;margin-right: 5px;"/>Sample Room</button>
+          <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Furniture_Dekstop')"><img src="./icons/desktopUI/furniture.svg" class="icon"/>Furniture</button>
           <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Lighting_Desktop')"><img src="./icons/desktopUI/light.svg" class="icon"/>Lighting</button>
           <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Paints_Desktop')"><img src="./icons/desktopUI/paint.svg" class="icon"/>Paints</button>
           <button class="tablinks_vertical desktop_top_buttons" onclick="openVerticalTab(event, 'Tiles_Desktop')"><img src="./icons/desktopUI/tiles.svg" class="icon"/>Tiles</button>
@@ -135,16 +222,35 @@
         <div style="margin-top: 100%;">
           <!-- bottom buttons comes here -->
           <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/spin.svg" class="icon"/>360Spins</button>
-          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')" style="font-size: 10px;"><img src="./icons/desktopUI/measurements.svg" class="icon"/>Measurements</button>
-          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/render.svg" class="icon"/>HD Render</button>
-          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/collaboration.svg" class="icon"/>Collaboration</button>
-          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/Advanced.svg" class="icon"/>Advanced</button>
-          <button style="background: linear-gradient(133deg, #FFC1BD 0%, #FFDEBF 100%);" class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/open_Project.svg" class="icon"/>Open project</button>
-          <button style="background: linear-gradient(133deg, #FFC1BD 0%, #FFDEBF 100%);" class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Spin_Dekstop')"><img src="./icons/desktopUI/save_Project.svg" class="icon"/>Save project</button>
+          <div class="measurementsHC">                 
+            <input type="checkbox" class="btn-check" name="setOneBtns" id="measurements_Desktop" autocomplete="off">
+            <label class="tablinks_vertical desktop_bottom_buttons Measurements" for="measurements_Desktop" style="font-size: 10px;padding-left: 5px;padding-top: 4px;"><img src="./icons/desktopUI/measurements.svg" class="icon"/>Measurements</label> 
+             <span class="measurementsHover">click on two different places on the screen to get measurements</span>                              
+          </div>         
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Render_Dekstop')"><img src="./icons/desktopUI/render.svg" class="icon"/>HD Render</button>
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Collaboration_Desktop')"><img src="./icons/desktopUI/collaboration.svg" class="icon"/>Collaboration</button>
+          <button class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'Advanced_Dekstop')"><img src="./icons/desktopUI/Advanced.svg" class="icon"/>Advanced</button>
+          <button style="background: linear-gradient(133deg, #FFC1BD 0%, #FFDEBF 100%);" class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'OpenProject_Dekstop')"><img src="./icons/desktopUI/open_Project.svg" class="icon"/>Open project</button>
+          <button style="background: linear-gradient(133deg, #FFC1BD 0%, #FFDEBF 100%);" class="tablinks_vertical desktop_bottom_buttons" onclick="openVerticalTab(event, 'SaveProject_Dekstop')"><img src="./icons/desktopUI/save_Project.svg" class="icon"/>Save project</button>
         </div>
       </div>
 
-        </div>                
+        </div>   
+        <div id="SampleRoom_Dekstop" class="tabcontent tabcontent_vertical">
+          <div class="horizontalTab">
+            <div class="d-flex flex-row justify-content-center align-items-center">                   
+              <div id="load_Furniture_Desktop">
+                <button class="buttonH buttonC d-flex flex-column justify-content-center align-items-center"> <img src="./icons/desktopUI/furniture.svg" style="width: 25px;height: 25px;"/> Furniture</button>                                        
+              </div>
+              <div id="load_Lighting_Desktop">
+                <button class="buttonH buttonC d-flex flex-column justify-content-center align-items-center"><img src="./icons/desktopUI/light.svg" style="width: 30px;height: 30px;"/> Lighting</button>                         
+              </div>  
+              <div id="load_Accessories_Desktop">
+                <button class="buttonH buttonC d-flex flex-column justify-content-center align-items-center"> <img src="./icons/desktopUI/accessories.svg" style="width: 25px;height: 25px;"/>Accessories</button>                         
+              </div>                  
+            </div>                                             
+          </div>          
+        </div>             
         <div id="Furniture_Dekstop" class="tabcontent tabcontent_vertical">
           <div class="horizontalTab">
             <div class="tabH">
@@ -155,11 +261,9 @@
               <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Cabinets_Desktop')">Cabinets</button>
               <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Dresser_Desktop')">Dresser</button>
             </div>        
-            <div id="Chair_Desktop" class="tabcontent_horizontal">
-              <p>Chair Coming Soon</p>                           
+            <div id="Chair_Desktop" class="tabcontent_horizontal p-1">                                       
             </div>        
-            <div id="Table_Desktop" class="tabcontent_horizontal">
-              <p>Table Coming Soon</p>              
+            <div id="Table_Desktop" class="tabcontent_horizontal p-1">                          
             </div>        
             <div id="Sofa_Desktop" class="tabcontent_horizontal">
               <p>Sofa Coming Soon</p>
@@ -184,7 +288,8 @@
               <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Wall_Desktop')">Wall</button>
             </div>        
             <div id="Floor_Desktop" class="tabcontent_horizontal">
-              <p>Floor Coming Soon</p>                           
+              <div class="d-flex justify-content-start p-1" id="lightsUIContainer_Desktop">                  
+              </div>                         
             </div>        
             <div id="TableLighting_Desktop" class="tabcontent_horizontal">
               <p>Table Lamp Coming Soon</p>              
@@ -266,8 +371,7 @@
               <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Window_Desktop')">Window</button>
               <button class="tablinks_horizontal" onclick="openHorizontalTab(event, 'Doors_Desktop')">Doors</button>              
             </div>        
-            <div id="windowBlinds_Desktop" class="tabcontent_horizontal">
-              <p>Window Blinds Coming Soon</p>                           
+            <div id="windowBlinds_Desktop" class="tabcontent_horizontal p-1">                                       
             </div>        
             <div id="Window_Desktop" class="tabcontent_horizontal">
               <p>Window Coming Soon</p>              
@@ -299,12 +403,258 @@
             </div>                                  
           </div>          
         </div>
+        <div id="Render_Dekstop" class="tabcontent tabcontent_vertical">
+          <div>                                
+            <form name = "passdata">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label" style="margin-left: 5px;font-size: 14px;">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" style="width: fit-content;margin-left: 5px;" aria-describedby="emailHelp">
+              </div> 
+              <div class="d-flex">
+               <p  class="buttons" style="background-color: #FF5A50;color: #FFFFFF;padding: 4px;margin: 5px;" id="Export_Image">Image Render</p> 
+               <p  class="buttons" style="background-color: #FF5A50;color: #FFFFFF;padding: 4px;margin: 5px;" id="Export_Video">Video Render</p> 
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="Advanced_Dekstop" class="tabcontent tabcontent_vertical">
+          <div class="d-flex justify-content-center" style="font-size: 10px;" id="controlsUI">
+            <div>     
+              <h1 style="font-size: 16px;margin-left: 100px;margin-top: 20px;">Advanced Light Controls</h1>                    
+            <div class="controlsContainer" style="width: 50%;">
+              <div class="initialControlsContainer1" style="width: 50%;">                
+                <div style="width: 100%; display: flex;gap: 2px;">
+                  <span style="margin-left: 130px;">Intensity</span>
+                  <span style="margin-left: 22px;">Color</span>
+                  <span style="margin-left: 3px;">Helper</span>
+                  <span style="margin-left: 2px;">Distance</span>
+                  <span>Decay</span>
+                </div>                                                                                 
+              </div>                  
+              <div style="display: none;" id="FloorLamp" >
+                <div class="d-flex">                          
+                  <div class="d-flex flex-row">                         
+                      <input type="checkbox" name="lights" value="floor_lamp" class="lightTypes" id="floor_lamp">
+                      <label for="floor_lamp">Floor Lamp</label>
+                     </div>                        
+                  <div class="slidecontainer1" style="margin-left: 5px;">                          
+                    <input type="range" min="0" max="10" value="5" step="0.1" class="slider Slider_range slider_class" style="width:70px">
+                  </div>
+                  <div class="colorPickerContainer1" style="margin-left: 5px;">                          
+                    <input type="color" class="colorPicker1" name="colorPicker1" value="#FFFFFF" style="border:none;height: 20px;width:30px">                          
+                  </div> 
+                  <input type="checkbox" name="helper" class="helper_FW" style="margin-left:5px;">                            
+
+                  <input type="number" class="distance" value="0" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                  <input type="number" class="decay" value="2" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                </div> 
+              </div>
+                <div style="display: none;" id="WallLamp">
+                <div class="d-flex">                          
+                  <div class="d-flex flex-row">                         
+                    <input type="checkbox" name="lights" value="wall_lamp" class="lightTypes" id="wall_lamp">
+                    <label for="wall_lamp">Wall Lamp</label>
+                    </div>                      
+                <div class="slidecontainer1" style="margin-left: 16px;">                          
+                  <input type="range" min="0" max="5" value="2" step="0.1" class="slider Slider_range slider_class" style="width:70px">
+                </div>
+                <div class="colorPickerContainer1" style="margin-left: 5px;">                          
+                  <input type="color" class="colorPicker1" name="colorPicker1" value="#FFFFFF" style="border:none;height: 20px;width:30px">                          
+                </div> 
+                <input type="checkbox" name="helper" class="helper_FW" style="margin-left: 5px;">  
+
+                <input type="number" class="distance" value="0" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+                <input type="number" class="decay" value="2" min="0" max="10" step="0.1" style="margin-left: 5px;width: 30px;height: 20px;">
+              </div>  
+            </div>
+            </div>                                              
+               <div id="MoreControls" style="margin-left: 60px;">
+                <div class="d-flex">                          
+                  <div>                                           
+                    <label style="color: #FF5A50;font-family: 'Roboto'; margin-right: 0px; margin-left: 50px;">Tone Mapping Exposure</label>
+                  <div class="d-flex">
+                    <div class="d-flex flex-row pb-1">                           
+                      <input type="checkbox" name="lights" value="HDRI" id="HDRI">
+                      <label for="HDRI">HDRI</label>                             
+                  </div>
+                    <div class="slidecontainer" style="margin-left: 10px;">                          
+                      <input type="range" min="0" max="2" value="0.7" step="0.1" class="slider Slider_range slider_class">
+                    </div>                          
+                  </div>   
+                  <div class="d-flex flex-row pb-1">              
+                    <input type="checkbox" name="Emissive" value="Emissive" checked id="Emissive">
+                    <label for="Emissive">Emissive</label>
+                    </div>
+                    <div class="d-flex flex-row pb-1">   
+                    <input type="checkbox" id="Shadows_SunLight" name="controls" value="Shadows_SunLight">
+                    <label for="Shadows_SunLight">Shadows SunLight</label>                               
+                    </div>
+                    <div class="d-flex flex-row pb-1"> 
+                      <input type="checkbox" id="Shadows_NightLight1" name="controls" value="Shadows_NightLight1">
+                      <label for="Shadows_NightLight1">Shadows NightLight</label>
+                      </div>                                                            
+                      <div class="d-flex flex-row pb-1"> 
+                      <input type="checkbox" id="ReflectionsMirror_C" name="effects" value="ReflectionsMirror_C">
+                      <label for="ReflectionsMirror_C">Mirror Reflections</label>
+                      </div>
+                      <div class="d-flex flex-row pb-1"> 
+                      <input type="checkbox" id="ReflectionsFloor_C" checked name="effects" value="ReflectionsFloor_C">
+                    <label for="ReflectionsFloor_C">Floor Reflections</label>
+                    </div>                                                        
+                        <div class="d-flex flex-row pb-1">                                                                                                             
+                          <input type="checkbox" id="SSAO_C" name="Preferences" value="SSAO_C">
+                          <label for="SSAO_C">SSAO</label> 
+                          </div>
+                          <div class="d-flex flex-row pb-1"> 
+                          <input type="checkbox" id="SAO_C" name="Preferences" value="SAO_C">
+                      <label for="SAO_C">SAO</label> 
+                      </div>                               
+                  </div>
+                  <div style="margin-left: 20px;margin-top: 20px;">                             
+                  <div class="d-flex flex-row pb-1"> 
+                    <input type="checkbox" id="TAA_C" name="Preferences" value="TAA_C">
+                    <label for="TAA_C">TAA</label>
+                    </div>
+                    <div class="d-flex flex-row pb-1"> 
+                    <input type="checkbox" id="FXAA_C" name="Preferences" value="FXAA_C">
+                    <label for="FXAA_C">FXAA</label>
+                    </div>
+                    <div class="d-flex flex-row pb-1"> 
+                    <input type="checkbox" id="SSAA_C" name="Preferences" value="SSAA_C">
+                    <label for="SSAA_C">SSAA</label>
+                    </div>
+                    <div class="d-flex flex-row pb-1"> 
+                    <input type="checkbox" id="SMAA_C" name="Preferences" value="SMAA_C" checked>
+                    <label for="SMAA_C">SMAA</label>
+                    </div>
+                    <div class="d-flex flex-row pb-1"> 
+                      <input type="checkbox" id="Stats" name="Preferences" value="Stats">
+                      <label for="Stats">Stats</label>  
+                          </div> 
+                    <div class="d-flex flex-row pb-1"> 
+                      <input type="checkbox" id="gui_ui" name="Preferences" value="gui_ui">
+                      <label for="gui_ui">GUI</label>
+                      </div>                                                  
+                          <div class="d-flex flex-row pb-1"> 
+                            <input type="checkbox" id="ssr_ui" name="Preferences" value="ssr_ui">
+                            <label for="ssr_ui">SSR</label>
+                            </div>                    
+                  </div>
+                </div>                                                                                                    
+              </div>                                      
+            </div>
+          </div>       
+        </div>
+
       </div>
 
       <div class="sidebarUI_desktop" style="width: 20%;">
-        side Ui
+          <div class="d-flex justify-content-between p-1">
+            <div>
+            <img src="./icons/desktopUI/Undo.svg" width="15px" height="15px"/>
+            <img src="./icons/desktopUI/Redo.svg" width="15px" height="15px"/>
+          </div>
+          <img id="reset_Desktop" src="./icons/desktopUI/reset.svg" width="15px" height="15px" style="margin-top: 8px;"/>
+          </div>
+          <label style="font-size: 12px;font-weight: 500;margin-left: 5px;">Arrangement</label>
+          <div class="d-flex flex-column"> 
+            <div>
+            <input type="checkbox" class="btn-check tranform_Desktop" id="select_Desktop" autocomplete="off">
+            <label for="select_Desktop">  <img src="./icons/desktopUI/Select.svg" width="20px" height="20px" style="margin: 5px;"/></label>  
+            <input type="checkbox" class="btn-check tranform_Desktop" id="unselect_Desktop" autocomplete="off">
+            <label for="unselect_Desktop">  <img src="./icons/desktopUI/unselect.svg"  width="15px" height="15px" style="margin: 5px;"/></label>  
+            <input type="radio" name="transformTools" value="translate" class="btn-check tranform_Desktop" id="move_Desktop" autocomplete="off">
+            <label for="move_Desktop"><img src="./icons/desktopUI/move.svg" width="15px" height="15px" style="margin: 5px;"/></label>  
+                                   
+          </div>           
+          <div>
+            <input type="radio" name="transformTools" value="rotate" class="btn-check tranform_Desktop" id="rotate_Desktop" autocomplete="off">
+            <label for="rotate_Desktop"><img src="./icons/desktopUI/rotateObject.svg"  width="15px" height="15px" style="margin: 5px;"/></label>  
+            
+            <input type="radio" name="transformTools" value="scale" class="btn-check tranform_Desktop" id="scale_Desktop" autocomplete="off">
+            <label for="scale_Desktop">  <img src="./icons/desktopUI/scale.svg"  width="15px" height="15px" style="margin: 5px;"/></label>  
+            
+            <input type="checkbox" class="btn-check tranform_Desktop" id="delete_Desktop" autocomplete="off">
+            <label for="delete_Desktop">  <img src="./icons/desktopUI/delete.svg" width="15px" height="15px" style="margin: 5px;"/></label>  
+            
+           
+            
+            
+            
+          </div>
+          </div>
+            <label style="font-size: 12px;font-weight: 500;margin-left: 5px;">Navigation</label>                      
+            <div>
+            <input type="checkbox" class="btn-check navigation_Desktop" id="zoom_Desktop" autocomplete="off">
+            <label for="zoom_Desktop">  <img src="./icons/desktopUI/zoom.svg" width="15px" height="15px" style="margin-right: 5px;margin-left: 5px;"/></label>  
+            <input type="checkbox" class="btn-check navigation_Desktop" id="pan_Desktop" autocomplete="off">
+            <label for="pan_Desktop">  <img src="./icons/desktopUI/pan.svg"  width="15px" height="15px" style="margin-right: 5px;"/></label>  
+            <input type="checkbox" class="btn-check navigation_Desktop" id="rotateScene_Desktop" autocomplete="off">
+            <label for="rotateScene_Desktop"><img src="./icons/desktopUI/rotateScene.svg" width="15px" height="15px"/></label>                                                                           
+            </div>
+            <button class="accordion d-flex">Themes <p id="downArrowThemes" style="margin-left: 30px;"><i class="arrow down"></i></p><p id="upArrowThemes" style="display: none;margin-left: 30px;"><i class="arrow up" ></i></p></button>
+            <div class="panel"> 
+              <div id="Themes_Desktop">                                        
+              </div>
+            </div>
+            <button class="accordion d-flex"><p style="margin-right: 13px;">Viewpoints</p><p id="downArrow"><i class="arrow down"></i></p><p id="upArrow" style="display: none;"><i class="arrow up" ></i></p></button>
+            <div class="panel">  
+              <div style="font-size: 12px;">
+                <div class="d-flex flex-row"> 
+                <input type="radio" class="form-check-input largerCheckbox Viewpoints_Desktop"  name="viewPoints" value="0">
+                <label >Main</label>
+                </div>
+                <div class="d-flex flex-row"> 
+                <input type="radio" class="form-check-input largerCheckbox Viewpoints_Desktop" name="viewPoints" value="3">
+                <label >Table</label>
+                </div>
+                <div class="d-flex flex-row"> 
+                <input type="radio" class="form-check-input largerCheckbox Viewpoints_Desktop"  name="viewPoints" value="5">
+                <label >Chair</label>
+                </div>
+                <div class="d-flex flex-row"> 
+                <input type="radio" class="form-check-input largerCheckbox Viewpoints_Desktop" name="viewPoints" value="4">
+                <label >Blinds</label>
+                </div>
+                <div class="d-flex flex-row"> 
+                <input type="radio" class="form-check-input largerCheckbox Viewpoints_Desktop" name="viewPoints" value="1">
+                <label >Ceiling</label>
+                </div>
+                <div class="d-flex flex-row"> 
+                <input type="radio" class="form-check-input largerCheckbox Viewpoints_Desktop" name="viewPoints" value="2">
+                <label>Back</label>                                         
+                 </div> 
+              </div>
+            </div>
+            <!-- ANIMATIONS & VARIANTS -->
+            <div >
+              <div class="d-flex justify-content-start" id="Chair_Desktop_AnimationsUI">
+                <div class="animationsUI">
+
+                </div>
+                <!-- tables animations UI -->
+              </div>
+              <div class="d-flex justify-content-start gap-2" id="Table_Desktop_AnimationsUI">
+                <!-- tables animations UI -->
+                <div class="animationsUI">
+
+                </div>
+              </div>
+              <div class="d-flex justify-content-start gap-2" id="windowBlinds_Desktop_AnimationsUI">
+                <!-- tables animations UI -->
+                <div class="animationsUI">
+
+                </div>
+              </div>
+            </div>           
+             <div class="initialControlsContainer" style="display: none;width: 100%; margin-right: 20px;font-size: 10px;">                                                                        
+              <label style="font-size: 12px;font-weight: 500;margin-left: 5px;">Light Controls</label> 
+            </div>   
       </div>
+    </div>
+
       </div>
+    </div>
 
         <div id="mobileUI">
         <!-- WELCOME SECTION -->
@@ -350,7 +700,7 @@
             </div>
               
           </div>            
-        </div> 
+          </div> 
         
           <div id="home_ui" class="item-card" style="display: none;width:380px; height:150px;padding-top: 0px;padding-bottom: 0px;margin-bottom: 0px;" >
           <div class="d-flex">
@@ -918,28 +1268,28 @@
                     <div class="d-flex justify-content-center" style="font-size: 12px;" id="controlsUI">
                       <div>
                         <div class="d-flex flex-row pb-1"> 
-                        <input type="radio" id="Camera_Main_View" name="viewPoints" value="0" class="largerCheckbox">
-                        <label for="Camera_Main_View">Main</label>
+                        <input type="radio" name="viewPoints" value="0" class="largerCheckbox viewPoints_Mobile">
+                        <label>Main</label>
                         </div>
                         <div class="d-flex flex-row pb-1"> 
-                        <input type="radio" id="Camera_Near_Table" name="viewPoints" value="3" class="largerCheckbox">
-                        <label for="Camera_Near_Table">Table</label>
+                        <input type="radio" name="viewPoints" value="3" class="largerCheckbox viewPoints_Mobile">
+                        <label>Table</label>
                         </div>
                         <div class="d-flex flex-row pb-1"> 
-                        <input type="radio" id="Camera_Near_Chair" name="viewPoints" value="5" class="largerCheckbox">
-                        <label for="Camera_Near_Chair">Chair</label>
+                        <input type="radio" name="viewPoints" value="5" class="largerCheckbox viewPoints_Mobile">
+                        <label>Chair</label>
                         </div>
                         <div class="d-flex flex-row pb-1"> 
-                        <input type="radio" id="Camera_Near_Blinds" name="viewPoints" value="4" class="largerCheckbox">
-                        <label for="Camera_Near_Blinds">Blinds</label>
+                        <input type="radio" name="viewPoints" value="4" class="largerCheckbox viewPoints_Mobile">
+                        <label >Blinds</label>
                         </div>
                         <div class="d-flex flex-row pb-1"> 
-                        <input type="radio" id="Camera_Focus_On_Cealing_Lights" name="viewPoints" value="1" class="largerCheckbox">
-                        <label for="Camera_Focus_On_Cealing_Lights">Ceiling</label>
+                        <input type="radio" name="viewPoints" value="1" class="largerCheckbox viewPoints_Mobile">
+                        <label >Ceiling</label>
                         </div>
                         <div class="d-flex flex-row pb-1"> 
-                        <input type="radio" id="Camera_Back_View" name="viewPoints" value="2" class="largerCheckbox">
-                        <label for="Camera_Back_View">Back</label>                                         
+                        <input type="radio" name="viewPoints" value="2" class="largerCheckbox viewPoints_Mobile">
+                        <label>Back</label>                                         
                          </div> 
                       </div>
                     </div>
@@ -1033,9 +1383,10 @@
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div> 
+                  <div class="d-flex">
                    <p  class="buttons" style="background-color: #FF5A50;color: #FFFFFF;padding-top: 4px;" id="Export_Image">Image Render</p> 
                    <p  class="buttons" style="background-color: #FF5A50;color: #FFFFFF;padding-top: 4px;" id="Export_Video">Video Render</p> 
-                  
+                  </div>
                 </form>
               </div>
             </div>
@@ -1207,6 +1558,40 @@
   
   document.getElementById("defaultVerticalOpen").click();
   document.getElementById("defaultHorizontalOpen").click();
+
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  let panelCSS=document.querySelectorAll(".panel");
+  let upArrow=document.getElementById("upArrow")
+  let downArrow=document.getElementById("downArrow")
+  let downArrowThemes=document.getElementById("downArrowThemes")
+  let upArrowThemes=document.getElementById("upArrowThemes")
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;      
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+        if(this.innerHTML.slice(0,6)=="Themes"){
+          upArrowThemes.style.display="none"
+          downArrowThemes.style.display="block"
+        }else{
+          upArrow.style.display="none"
+          downArrow.style.display="block"
+        }
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px"; 
+        if(this.innerHTML.slice(0,6)=="Themes"){
+          upArrowThemes.style.display="block"
+          downArrowThemes.style.display="none"
+        }else{
+          upArrow.style.display="block"
+          downArrow.style.display="none"
+        }   
+        
+      }       
+    });
+  }
   </script>
     
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

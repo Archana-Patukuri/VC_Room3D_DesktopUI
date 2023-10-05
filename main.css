@@ -2,11 +2,74 @@
   height: 100vh;
   background-color: rgb(236, 236, 236);  
 }
+.buttons{
+  background-color: white;
+  height: 30px;
+  width: 95px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #e2e2e2;
+  font-size: 12px;
+  color: #161616;
+  font-weight: 400;
+  text-align: center;
+ text-decoration: none;
 
+}
+.accordion {    
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  height: 35px;
+  font-weight: 500;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+  transition: 0.4s;
+}
+.Objectthumbnail{
+  width: 70px;
+  height: 70px;
+  margin: 2px;
+}
+.largerCheckbox {
+  width: 15px;
+  height: 15px;    
+  margin-right: 5px;
+    
+}
+
+.arrow {
+  border: solid rgb(67, 65, 65);
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.panel {
+  padding: 0 5px;  
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.themes_Desktop_Label{
+  font-size: 10px;
+}
  .home_card_container{
   display: flex;
 width: 500px;
 height: 400px;
+margin-left: 1px;
 padding: 10px 20px 60px 30px;
 flex-direction: column;
 justify-content: center;
@@ -19,7 +82,7 @@ background: linear-gradient(135deg, rgba(255, 153, 80, 0.90) 0%, rgba(255, 90, 8
   color: #FFF;
 font-feature-settings: 'clig' off, 'liga' off;
 font-family: Poppins;
-font-size: 38px;
+font-size: 24px;
 font-style: normal;
 font-weight: 700;
 }
@@ -34,8 +97,7 @@ font-weight: 500;
   display: flex;
   width: 170px;
   height: 50px;  
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;  
   align-items: center;
   flex-shrink: 0;
   border-radius: 100px;
@@ -50,6 +112,7 @@ background: #FFF;
   font-style: normal;
   font-weight: 600;
   line-height: 22px; 
+  margin-top: 15px;
 } 
 .home_ui_button{
   width: 110px;
@@ -67,7 +130,7 @@ font-weight: 400;
 
 }
 .commerce_logo{
-  width: 200px;height: 150px;margin-left: 100px;margin-bottom: 170px;
+  width: 200px;height: 150px;
 }
 #ar-prompt {
   position: absolute;
@@ -130,7 +193,44 @@ height: 100vh;
   text-align: left;    
   font-size: 12px;
 }
-
+.lightModes{
+  background-color: white;  
+  height: 30px;
+  width: 70px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: #303030;
+  font-size: 12px;
+  color: #070707;
+  font-weight: 400;  
+ text-decoration: none;
+ margin: 5px;
+ margin-top: 20px;
+}
+.buttonH{
+  background-color: white;  
+  height: 100px;
+  width: 80px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: #303030;
+  font-size: 12px;
+  color: #161616;
+  font-weight: 400;  
+ text-decoration: none;
+ margin: 5px;
+ margin-top: 20px;
+}
+.buttonC:active{
+  background: #FF5A50;
+  color: #FFFFFF;
+}
+.buttonC:hover{
+  background: #FF5A50;
+  color: #FFFFFF;
+}
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #FF5A50;
@@ -189,6 +289,91 @@ height: 100vh;
   display: none;  
   border: 1px solid #ccc;
   border-top: none;
+}
+.measurementLabel {
+  font-family: monospace;
+  background-color: black;
+  color: white;
+}
+.measurementsHC .measurementsHover{
+  visibility: hidden;
+  width: 150px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  left:57%;
+  top: 60%;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+}
+.measurementsHC .measurementsHover::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+  
+}
+.measurementsHC:hover .measurementsHover{
+  visibility: visible; 
+}
+.material_variants{
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;    
+  margin-left: 2px;  
+}
+.Animations{
+  margin-left: 2px;  
+  font-size: 12px;
+  font-weight: 500;      
+}
+.animationInput{
+  font-size: 14px;
+}
+.animationLabel{
+  font-size: 12px;
+  
+}
+.slider {
+  -webkit-appearance: none;
+  width: 90px;
+  height: 4px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FF5A50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #FF5A50;
+  cursor: pointer;
 }
 
 @media (max-width:992px) {
@@ -317,12 +502,12 @@ font-size: 12px;
   -o-border-color: #161616;
   -ms-border-color: #161616;
   border-color: #161616;
-  margin-right: 5px; !important  
+  margin-right: 5px; 
     
 }
 
 .labelAlignment{
-  margin-top: 3px; !important      
+  margin-top: 3px;
 }
 .buttons{
   background-color: white;
@@ -351,39 +536,6 @@ font-size: 12px;
   color: #161616;
   font-weight: 400;  
  text-decoration: none;
-}
-.slider {
-  -webkit-appearance: none;
-  width: 90px;
-  height: 4px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #FF5A50;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #FF5A50;
-  cursor: pointer;
 }
 .checkb{
   visibility: hidden;
@@ -616,4 +768,25 @@ display: inline-block;
   display: block;  
 }
 
+}
+
+
+
+.button3 {    
+  background: transparent;
+  border: 0px;   
+}
+.helpImage{
+  margin-bottom: 200px;
+  margin-top: -390px;  
+}
+.LightModesImage{
+  margin-bottom: 200px;
+  margin-top: -390px;
+  margin-left: 30px;
+}
+.LightModesImage1{
+  margin-bottom: 200px;
+  margin-top: -390px;
+  margin-left: 30px;
 }

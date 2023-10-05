@@ -2,10 +2,10 @@ import { furnitureTypesUI } from "../../systems/UI-Generators/furnitureTypesUI";
 import { gltfLoad } from "../gltf_loader/gltfLoad.js";
 import { animationUI } from "../../systems/UI-Generators/animationUI";
 import { AnimationMixer, Group } from "three";
-import { calculateCenter } from "./calculateCenter";
-import { setupModel } from "./setupModel";
-// import { shadows } from "../../systems/shadows";
-
+let mobile = false;
+if (/Android|iPhone/i.test(navigator.userAgent)) {
+  mobile = true;
+}
 class FurnitureContainer {
   constructor(assetsList, furnitureTypesUI, category, initialModelID,scene,renderer) {
     this.assetsList = assetsList;
@@ -22,14 +22,23 @@ class FurnitureContainer {
     this.AnimationUIs = [];
     //AnimationMixers to store animationMixer for each GLTF model loaded
     this.animationMixers = [];
+    console.log(this.furnitureTypesUI.id)
+    if(mobile){
     //Get the element where we will add the animations UI
     this.toastbody = document
       .getElementById(`${this.furnitureTypesUI.id}Toast`)
       .getElementsByClassName("toast-body")[0];
+    }else{
+      this.toastbody = document
+      .getElementById(`${this.furnitureTypesUI.id}_AnimationsUI`)
+      .getElementsByClassName("animationsUI")[0];
+    }
     this.currentAnimationMixer;
   }  
   async loadModel(URL, i, spinner) {
+    
     this.toastbody.replaceChildren();
+    
     //Load a Default Model with "initialModelID"
     URL ||= this.assetsList[this.initialModelID].URL;
 
@@ -41,11 +50,8 @@ class FurnitureContainer {
       this.spinnerDisplay(spinner, "block");
       let modelURL = await fetch(URL); 
       const { gltfData } = await gltfLoad(modelURL.url);      
-      let loadedModel = setupModel(gltfData);         
+      let loadedModel = gltfData.scene;         
       this.models[i] = loadedModel;
-
-      /* let shadowLight=3;
-      shadows(this.scene,shadowLight); */
 
       let mixer = new AnimationMixer(this.models[i]);
       this.AnimationUIs[i] = animationUI(
@@ -66,7 +72,9 @@ class FurnitureContainer {
     }
 
     this.currentAnimationMixer = this.animationMixers[i];
+    
     this.toastbody.appendChild(this.AnimationUIs[i]);
+   
     this.model = this.models[i];
     this.parentGroup.add(this.model);
    

@@ -1,4 +1,3 @@
-import 'use-spinner/assets/use-spinner.css';
 import  hdriLoad  from "../components/hdri_loader/hdri_loader.js";
 import * as THREE from 'three';
 import elementFromHtmlString from '../utils/elementFromHtmlString';
@@ -93,54 +92,16 @@ async function lightControls(
     },        
   ];
 
-  const htmlArray = LightControlsArray.map((item) =>
-    elementFromHtmlString(`
-    <div calss="d-flex lightSettingContainer" style="display:flex; align-items:center; width:100%; gap:10px;">
-      <div class="d-flex flex-row ml-0" style="display:flex; align-items:center; width:50%" >
-        <label for="${
-          item.id
-        }" style="display:flex; align-items:center; gap:5px" >
-          <input type="radio" width="24px" height="24px" data-type="${
-            item.id
-          }" name="lights" style="transform:scale(1.5)" class="lightActiveCheckbox" />
-          ${item.innerText}
-        </label>
-      </div>      
-      ${
-        item.intensity
-          ? `
-          <div class="slidecontainer" style=" width:25%">
-          <input type="range" data-type="${item.id}" min="0" max="10" value="${item.intensity}" step="0.1"
-          class="slider Slider_range intensity_slider" />
-          </div>
-      `
-          : ''
-      }
-      ${
-        item.color
-          ? `
-      <div class="colorPickerContainer" style="margin-left: 6px;">
-        <input type="color" data-type="${item.id}" class="colorPicker" name="colorPicker"
-        value="${item.color}" style="border:none;height: 20px;">
-      </div>`
-          : ''
-      }
-            
-    </div>
-  `
-  )
-  
-  );
   const htmlArray1 = LightControlsArray.map((item) =>
-  elementFromHtmlString(`
-  <div calss="d-flex lightSettingContainer" style="display:flex; align-items:center; width:100%; gap:10px;">
-    <div class="d-flex flex-row ml-0" style="display:flex; align-items:center; width:25%" >
+   elementFromHtmlString(`
+  <div calss="d-flex lightSettingContainer" style="display:flex; align-items:center; width:100%;gap:5px;margin-left:60px">
+    <div class="d-flex flex-row" style="display:flex; align-items:center; width:100%;" >
       <label for="${
         item.id
-      }" style="display:flex; align-items:center;gap:5px" >
-        <input type="radio" width="24px" height="24px" data-type="${
+      }" style="display:flex; align-items:center;width:150px" >
+        <input type="radio" data-type="${
           item.id
-        }" name="lights" style="transform:scale(1.5)" class="lightActiveCheckbox" />
+        }" name="lights" class="lightActiveCheckbox" />
         ${item.innerText}
       </label>
     </div>
@@ -149,7 +110,7 @@ async function lightControls(
         ? `
         <div classm="slidecontainer">
         <input type="range" data-type="${item.id}" min="0" max="10" value="${item.intensity}" step="0.1"
-        class="slider Slider_range intensity_slider" style="width:70px"/>
+        class="slider Slider_range intensity_slider" style="width:60px"/>
         </div>
     `
         : ''
@@ -159,7 +120,7 @@ async function lightControls(
         ? `
     <div class="colorPickerContainer" >
       <input type="color" data-type="${item.id}" class="colorPicker" name="colorPicker"
-      value="${item.color}" style="border:none;height: 20px;width:30px">
+      value="${item.color}" style="border:none;height: 20px;width:20px">
     </div>`
         : ''
     }
@@ -167,7 +128,7 @@ async function lightControls(
       item.helper
         ? `
     <input type="radio" data-type="${item.id}" value="${item.helper}" name="helper"
-    class="largerCheckbox helpers_controls">
+    class="helpers_controls">
     `
         : ''
     }
@@ -175,7 +136,7 @@ async function lightControls(
       item.distance
         ? `
     <input type="number" data-type="${item.id}" class="distance_class" name="distance_class" 
-    value="${item.distance}" min="0" max="10" step="0.1"  style="width: 30px;height: 20px;">
+    value="${item.distance}" min="0" max="10" step="0.1"  style="width: 25px;height: 20px;">
     `
         : ''
 
@@ -184,17 +145,56 @@ async function lightControls(
       item.decay
         ? `
     <input type="number" data-type="${item.id}" class="decay_class" name="decay_class" value="${item.decay}" min="0" max="10"
-      step="0.1" style="width: 30px;height: 20px;">
+      step="0.1" style="width: 25px;height: 20px;">
       `
         : ''
     }      
   </div>
 `
 )
+  
+  );
+  const htmlArray = LightControlsArray.map((item) =>
+  elementFromHtmlString(`  
+  <div calss="lightSettingContainer" style="width:100%;gap:5px;margin-left:5px">    
+    <div class="d-flex flex-row" style="display:flex; align-items:center; width:100%;" >
+      <label for="${
+        item.id
+      }" style="display:flex; align-items:center;width:150px" >
+        <input type="radio" data-type="${
+          item.id
+        }" name="lights" class="lightActiveCheckbox" />
+        ${item.innerText}
+      </label>
+    </div>
+    <div class="d-flex flex-row" style="gap:5px">
+    ${
+      item.intensity
+        ? `
+        <div classm="slidecontainer">
+        <input type="range" data-type="${item.id}" min="0" max="10" value="${item.intensity}" step="0.1"
+        class="slider Slider_range intensity_slider" style="width:60px"/>
+        </div>
+    `
+        : ''
+    }
+    ${
+      item.color
+        ? `
+    <div class="colorPickerContainer" >
+      <input type="color" data-type="${item.id}" class="colorPicker" name="colorPicker"
+      value="${item.color}" style="border:none;height: 20px;width:20px">
+    </div>`
+        : ''
+    }    
+    </div>  
+  </div>
+`
+)
 
 );
 
-  const controlsContianer = document.querySelector('.initialControlsContainer');  
+  const controlsContianer = document.querySelector('.initialControlsContainer');   
   let l=(htmlArray.length)-1
   for(let i=0;i<l;i++){
     controlsContianer.appendChild(htmlArray[i]);

@@ -6,9 +6,10 @@ if (/Android|iPhone/i.test(navigator.userAgent)) {
 let desktopUI=document.getElementById("desktopUI");
 let mobileUI=document.getElementById("mobileUI");
 
-if(mobile){
-  mobileUI.style.display="block"
+if(mobile){  
   desktopUI.style.display="none"
+  mobileUI.style.display="block"
+  
   let Section_Container=document.querySelectorAll(".Section_Container");
 
   let welcomSection=Section_Container[0]
@@ -302,20 +303,29 @@ if(mobile){
   
      backControls.addEventListener("click",function(){
       MoreControlsToast.style.display="none"; 
-     })
+     })  
+
      let home_card_close=document.getElementById("close_home");
-     let home_card_container=document.getElementById("home_card_container1")
-     let home_ui=document.getElementById("home_ui")
-     home_card_close.addEventListener("click",function(){
+      let home_card_container=document.getElementById("home_card_container1")
+      let home_ui=document.getElementById("home_ui")
+      home_card_close.addEventListener("click",function(){
       home_card_container.style.display="none"
       home_ui.style.display="block"    
-     }) 
+      }) 
 }
 if(!mobile){
   mobileUI.style.display="none"
   desktopUI.style.display="block"
+
+  let home_card_close_Desktop=document.getElementById("home_card_close_Desktop");
+  let home_card_container_Desktop=document.getElementById("home_card_container_Desktop")
+  let desktopUIContainer=document.getElementById("desktopUIContainer")
+  home_card_close_Desktop.addEventListener("click",function(){
+  home_card_container_Desktop.style.display="none"
+  desktopUIContainer.style.display="block"    
+}) 
 }
 
-  
+
 
 

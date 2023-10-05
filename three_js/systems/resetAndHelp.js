@@ -15,6 +15,10 @@ function resetAndHelp(camera){
       });
       await myPromise;  
     }      
+    let reset_Desktop=document.getElementById("reset_Desktop")
+    reset_Desktop.onclick = function() {
+      ResetView_Fun()
+    }
     let ResetView=document.getElementById("reset");
     ResetView.onclick = function() {
       ResetView_Fun()
@@ -46,6 +50,9 @@ function resetAndHelp(camera){
     Help.addEventListener("click",function(){
       Help_Fun()
     })
-       
+    let help3DButton=document.getElementById("help3DButton")
+    help3DButton.addEventListener("click",function(){
+      Help_Fun()
+    })    
 }
 export {resetAndHelp};

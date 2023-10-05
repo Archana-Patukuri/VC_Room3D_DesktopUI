@@ -1,8 +1,4 @@
 import {MOUSE} from "three";
-import useSpinner from '../../use-spinner';
-import '../../use-spinner/assets/use-spinner.css';
-let container_3d=document.getElementById("3dcontainer");
-
 function basicControls(scene,camera,controls,renderer) {  
 
   controls.enableZoom = true;
@@ -34,76 +30,37 @@ function basicControls(scene,camera,controls,renderer) {
   } 
     let navigationOpt=document.querySelectorAll(".navigationOpt");
    
-    const Zoom_fn = async () => {
-      await new Promise(resolve => setTimeout(() => {
+    function Zoom_Fun(){     
         console.log("zoom clicked")
         controls.enableZoom = true;    
         navigationOpt[0].style.background="#FF5A50";
-        navigationOpt[0].style.color="#FFFFFF"; 
-        resolve();
-      }, 10));
-    }; 
-     async function Zoom_Fun() {                                      
-      const spinnedFn = useSpinner(Zoom_fn, {
-       container: container_3d
-     });      
-     // execute with a loading spinner
-     await spinnedFn();
-   }      
-    const Zoom_Else_fn = async () => {
-      await new Promise(resolve => setTimeout(() => {
+        navigationOpt[0].style.color="#FFFFFF";       
+    };     
+    function Zoom_Else_Fun(){     
         controls.enableZoom = false;  
         navigationOpt[0].style.background="#FFFFFF";
-        navigationOpt[0].style.color="#000000"; 
-        resolve();
-      }, 10));
-    }; 
-     async function Zoom_Else_Fun() {                                      
-      const spinnedFn = useSpinner(Zoom_Else_fn, {
-       container: container_3d
-     });      
-     // execute with a loading spinner
-     await spinnedFn();
-   }        
+        navigationOpt[0].style.color="#000000";       
+    };     
     let Zoom=document.getElementById("Zoom");
         Zoom.addEventListener("change", (e) => {
           if (e.target.checked) {
-            Zoom_Fun()                         
+            Zoom_Fun()                        
           }else{
             Zoom_Else_Fun()
           }
         }) ;
-        const Rotate_fn = async () => {
-          await new Promise(resolve => setTimeout(() => {
+        function Rotate_Fun(){          
             console.log("rotate clicked")
             controls.enableRotate=true;  
             navigationOpt[2].style.background="#FF5A50";
-            navigationOpt[2].style.color="#FFFFFF"; 
-            resolve();
-          }, 10));
+            navigationOpt[2].style.color="#FFFFFF";            
         }; 
-         async function Rotate_Fun() {                                      
-          const spinnedFn = useSpinner(Rotate_fn, {
-           container: container_3d
-         });      
-         // execute with a loading spinner
-         await spinnedFn();
-       }        
-        const Rotate_Else_fn = async () => {
-          await new Promise(resolve => setTimeout(() => {
+           
+        function Rotate_Else_Fun(){          
             controls.enableRotate=false; 
             navigationOpt[2].style.background="#FFFFFF";
-            navigationOpt[2].style.color="#000000";  
-            resolve();
-          }, 10));
-        }; 
-         async function Rotate_Else_Fun() {                                      
-          const spinnedFn = useSpinner(Rotate_Else_fn, {
-           container: container_3d
-         });      
-         // execute with a loading spinner
-         await spinnedFn();
-       }        
+            navigationOpt[2].style.color="#000000";            
+        };           
     let Rotate=document.getElementById("Rotate1");    
         Rotate.addEventListener("change", (e) => {
           if (e.target.checked) {
@@ -112,60 +69,44 @@ function basicControls(scene,camera,controls,renderer) {
             Rotate_Else_Fun()
           }
         })
-        const Pan_fn = async () => {
-          await new Promise(resolve => setTimeout(() => {
+        function Pan_Fun(){          
             console.log("PAN clicked")
             controls.enablePan=true;   
             navigationOpt[1].style.background="#FF5A50";
-            navigationOpt[1].style.color="#FFFFFF";  
-            resolve();
-          }, 10));
-        }; 
-         async function Pan_Fun() {                                      
-          const spinnedFn = useSpinner(Pan_fn, {
-           container: container_3d
-         });      
-         // execute with a loading spinner
-         await spinnedFn();
-       }    
+            navigationOpt[1].style.color="#FFFFFF";             
+        };          
           
-        const Pan_Else_fn = async () => {
-          await new Promise(resolve => setTimeout(() => {
+        function Pan_Else_Fun(){         
             controls.enablePan=false; 
             navigationOpt[1].style.background="#FFFFFF";
-            navigationOpt[1].style.color="#000000";        
-            resolve();
-          }, 10));
-        }; 
-         async function Pan_Else_Fun() {                                      
-          const spinnedFn = useSpinner(Pan_Else_fn, {
-           container: container_3d
-         });      
-         // execute with a loading spinner
-         await spinnedFn();
-       }                 
-    let Pan=document.getElementById("Pan");
-        Pan.addEventListener("change", (e) => {
-          if (e.target.checked) { 
-            Pan_Fun()
-          }else{
-            Pan_Else_Fun()
-          }
-        })     
-     
+            navigationOpt[1].style.color="#000000";                    
+        };                    
+      let Pan=document.getElementById("Pan");
+          Pan.addEventListener("change", (e) => {
+            if (e.target.checked) { 
+              Pan_Fun()
+            }else{
+              Pan_Else_Fun()
+            }
+          })     
+      
         
         let zoom_home=document.getElementById("zoom_home");
         let pan_home=document.getElementById("pan_home");
         let rotate_home=document.getElementById("rotate_home");
         zoom_home.addEventListener("click", function(){
-          Zoom_fn()                    
+          Zoom_Fun()                    
         }) 
         pan_home.addEventListener("click", function(){
           Pan_Fun()                      
       }) 
       rotate_home.addEventListener("click", function(){
-        Rotate_fn()                     
+        Rotate_Fun()                     
     })  
+    let navigation_Desktop=document.querySelectorAll(".navigation_Desktop");
+    navigation_Desktop[0].addEventListener("click",function(){Zoom_Fun()})
+    navigation_Desktop[1].addEventListener("click",function(){Pan_Fun()})
+    navigation_Desktop[2].addEventListener("click",function(){Rotate_Fun()})
   controls.maxDistance=10;  
   controls.update();
   
