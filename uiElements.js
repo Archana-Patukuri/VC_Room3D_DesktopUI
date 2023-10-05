@@ -325,7 +325,7 @@ if(!mobile){
   desktopUIContainer.style.display="block"    
 }) 
 }
-
+desktopUIContainer.style.display="block" 
 
 
 
